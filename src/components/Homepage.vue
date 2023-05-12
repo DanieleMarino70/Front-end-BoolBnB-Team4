@@ -19,7 +19,7 @@
     </div>
  </div>
  <div class="videocont">
-    <video class="col-10 offset-1" controls loop>
+    <video controls loop>
      <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/mp4">
      <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/ogg">
    </video>
@@ -61,6 +61,7 @@ header{
 .videocont video{
     margin-top: 25px;
     height: 80vh;
+    width: 100%;
 }
 
 .overvidtext{
@@ -68,7 +69,7 @@ header{
 }
 
 .overvidtext h1{
-    font-size: 100px;
+    font-size: 120px;
     position: relative;
     bottom: 50vh;
     color:#fcf9f9;
