@@ -3,46 +3,76 @@
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+ <header>
+ <div class="navbar col-12 p-2">
+    <div class="navlogo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="">
     </div>
-  </div>
-</nav>
+    <div class="navright text-white d-flex flex-row gap-3 p-2">
+        <li>Our Communities</li>
+        <li>Who We Are</li>
+        <li>Contact Us</li>
+    </div>
+ </div>
+ <div class="videocont">
+    <video class="col-10 offset-1" controls loop>
+     <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/mp4">
+     <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/ogg">
+   </video>
+   <div class="overvidtext d-flex justify-content-center">
+   <h1>
+     BOOLBNB
+   </h1>
+   </div>
+ </div>
+ </header>
   
 </template>
 
 <style>
+header{
+    background-color: #fcf9f9;
+    height: 100vh;
+    font-family: 'Fjalla One', sans-serif;
+
+}
+
+.navbar{
+    background-color: #fcf9f9;
+}
+
+.navlogo img{
+    width: 70px;
+}
+
+.navright{
+    list-style: none;
+}
+
+.navright li{
+    color: #595858;
+}
+
+
+.videocont video{
+    margin-top: 25px;
+    height: 80vh;
+}
+
+.overvidtext{
+    
+}
+
+.overvidtext h1{
+    font-size: 100px;
+    position: relative;
+    bottom: 50vh;
+    color:#fcf9f9;
+}
 
 
 </style>
