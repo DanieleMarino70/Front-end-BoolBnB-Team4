@@ -140,7 +140,7 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 
-.content a:hover {
+.content router-link:hover {
   background-color: #e4baa0;
 }
 
