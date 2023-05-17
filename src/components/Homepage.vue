@@ -7,73 +7,114 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
+ <link rel="stylesheet" href="style.css">
+
  <header>
- <div class="navbar col-12 p-2">
-    <div class="navlogo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png" alt="">
-    </div>
-    <div class="navright text-white d-flex flex-row gap-3 p-2">
-        <li>Our Communities</li>
-        <li>Who We Are</li>
-        <li>Contact Us</li>
-    </div>
- </div>
- <div class="videocont">
-    <video controls loop>
-     <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/mp4">
-     <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/ogg">
-   </video>
-   <div class="overvidtext d-flex justify-content-center">
-   <h1>
-     BOOLBNB
-   </h1>
-   </div>
- </div>
+     <div class="hero">
+
+
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="pexels-kindel-media-7578546-3840x2160-30fps.mp4" type="video/mp4" >
+        </video>
+
+
+        <nav>
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-rBzei1zTMrERZ73cBQh7HuGs-Ot3KOWYmZZGyb30&s" alt="">
+           <ul>
+            <li><a  href=""></a>HOME</li>
+            <li><a  href=""></a>SERVICES</li>
+            <li><a  href=""></a>MESSAGES</li>
+            <li><a  href=""></a>CONTACT US</li>
+           </ul>
+        </nav>
+        <div class="content">
+            <h1>BOOLBNB</h1>
+            <a href="">Esplora</a>
+
+        </div>
+     </div>
  </header>
   
 </template>
 
 <style>
-header{
-    background-color: #fcf9f9;
-    height: 100vh;
-    font-family: 'Fjalla One', sans-serif;
+   .hero{
+     width: 100%;
+     height: 100vh;
+     background-image: linear-gradient(rgba(12,3,51,0.3),rgba(12,3,51,0.3));
+     position: relative;
+     padding: 0.5%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
 
-}
-
-.navbar{
-    background-color: #fcf9f9;
-}
-
-.navlogo img{
-    width: 70px;
-}
-
-.navright{
-    list-style: none;
-}
-
-.navright li{
-    color: #595858;
-}
-
-
-.videocont video{
-    margin-top: 25px;
-    height: 80vh;
+   nav{
     width: 100%;
-}
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   }
 
-.overvidtext{
-    
-}
+   nav img{
+    width: 80px;
+   }
 
-.overvidtext h1{
-    font-size: 120px;
-    position: relative;
-    bottom: 50vh;
-    color:#fcf9f9;
-}
+   nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+   }
 
+   nav ul li a{
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+   }
+
+   .content{
+    text-align: center;
+   }
+
+   .content h1{
+    font-size: 160px;
+    color: white;
+    font-weight: 600;
+    transition: 0.5s;
+   }
+
+   .content h1:hover{
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+   }
+
+   .content a{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    border: 2px solid white;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+   }
+
+   .back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+   }
+
+   @media(max-aspect-ratio:16/9){
+    .back-video{
+       width: auto;
+       height:100%;
+    }
+   }
 
 </style>
