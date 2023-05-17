@@ -1,11 +1,12 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
-import { router } from "./index.js/router";
+import { router } from "./router/index.js";
 import "bootstrap/dist/css/bootstrap.css";
 
-createApp(App).mount("#app");
-App.use(router);
+const app = createApp(App);
+app.use(router);
+app.mount("#app");
 import "bootstrap/dist/js/bootstrap.js";
 
 //scroll animation
