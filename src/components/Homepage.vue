@@ -8,6 +8,7 @@
  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 
  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="main.js">
 
 <!--color: #fcf9f9;
 color: #e4baa0;-->
@@ -32,8 +33,16 @@ color: #e4baa0;-->
         </nav>
         <div class="content">
             <h1>BOOLBNB</h1>
-            <a href="">Esplora</a>
+            <a class="text-white" href="">Esplora</a>
 
+        </div>
+     </div>
+     <div class="intro col-12">
+        <div class="col-8 offset-2 text-center p-5">
+            <h1>SEI FINALMENTE A CASA CON BOOLBNB!</h1>
+            <p>Boolbnb è una piattaforma ideata per ogni tipo di viaggio e ti permette in modo veloce e sicuro di prenotare un alloggio e affittare una casa o offrire un’esperienza. </p>
+            <p>Si fonda sulla fiducia, sull’affidabilità e su una stretta relazione tra i diversi viaggiatori, che recensiscono l’alloggio all’interno della community.
+            È molto semplice da utilizzare: vai sul sito di Airbnb, sia che sei un host o un viaggiatore se vuoi mettere un annuncio o rispondere dovrai effettuare l’accesso. Al termine di tutti i dati, ti ritroverai nella pagina iniziale di Airbnb, che ti propone non solo differenti tipologie di case ma anche esperienze e ristoranti. Le case Airbnb vengono selezionate in: Airbnb plus, selezionate per qualità e comfort, e quelle adatte alla famiglia e al lavoro. Se desideri prenotare una casa è molto semplice e veloce: ti basta digitare il luogo dove desideri andare e scegliere tra le alternative previste.</p>
         </div>
      </div>
  </header>
@@ -108,6 +117,11 @@ color: #e4baa0;-->
     padding: 14px 70px;
     border-radius: 50px;
     margin-top: 20px;
+    transition: 0.5s;
+   }
+
+   .content a:hover{
+    background-color: #e4baa0;
    }
 
    .back-video{
@@ -123,5 +137,30 @@ color: #e4baa0;-->
        height:100%;
     }
    }
+
+   .intro h1{
+    color: #e4baa0;
+   }
+
+   .intro{
+       opacity: 0;
+       filter: blur(5px);
+       transform: translateX(-100%);
+       transition: all 1s;
+   }
+
+   @media(prefers-reduced-motion){
+     .intro{
+        transition: none;
+     }
+   }
+
+   .show{
+       opacity: 1;
+       filter: blur(0);
+       transform: translateX(0);
+       
+   }
+
 
 </style>

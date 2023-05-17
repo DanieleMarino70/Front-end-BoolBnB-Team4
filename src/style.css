@@ -1,6 +1,16 @@
+
+
+
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family:'Fjalla One', sans-serif; ;
+}
+
+body{
+    background-color: #fcf9f9;
 }
