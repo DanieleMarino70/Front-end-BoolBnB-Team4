@@ -1,16 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import ApartmentsList from "../components/ApartmentsList.vue";
-import FooterComponent from "../components/FooterComponent.vue";
-import HelloWorld from "../components/HelloWorld.vue";
-import Homepage from "../components/Homepage.vue";
-import App from "../App.vue";
+import ApartmentsList from "../pages/ApartmentsList.vue";
+import Homepage from "../pages/Homepage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: "active",
   linkExactActiveClass: "",
   routes: [
+    {
+      path: "/",
+      name: "Homepage",
+      component: Homepage,
+    },
     {
       path: "/apartments",
       name: "ApartmentsList",

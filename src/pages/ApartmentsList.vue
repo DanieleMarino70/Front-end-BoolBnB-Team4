@@ -24,7 +24,9 @@ export default {
 </script>
 
 <template>
-  <li v-for="apartment in apartments">{{ apartment.title }}</li>
+  <ul>
+    <li v-for="apartment in apartments">{{ apartment.title }}</li>
+  </ul>
 </template>
 
 <style lang="scss" scoped></style>
