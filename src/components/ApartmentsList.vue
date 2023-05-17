@@ -1,31 +1,29 @@
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-    data() {
-        return {
-            apartments: []
-        }
-    },
+  data() {
+    return {
+      apartments: [],
+    };
+  },
 
-    methods: {
-        fetchApartments() {
-            axios
-                .get('http://127.0.0.1:8000/api/apartments')
-                .then((response) => {
-                    this.apartments = response.data;
-                })
-        }
+  methods: {
+    fetchApartments() {
+      axios.get("http://127.0.0.1:8000/api/apartments").then((response) => {
+        this.apartments = response.data.apartments;
+      });
     },
+  },
 
-    created() {
-        this.fetchApartments();
-    },
+  created() {
+    this.fetchApartments();
+  },
 };
 </script>
 
 <template>
-    <li v-for="apartment in apartments"> {{ apartment.title }} </li>
+  <li v-for="apartment in apartments">{{ apartment.title }}</li>
 </template>
 
 <style lang="scss" scoped></style>
