@@ -9,7 +9,7 @@ import App from "../App.vue";
 const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: "active",
-  LinkExactActiveClass: "",
+  linkExactActiveClass: "",
   routes: [
     {
       path: "/apartments",

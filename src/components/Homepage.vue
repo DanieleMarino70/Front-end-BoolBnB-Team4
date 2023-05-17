@@ -37,9 +37,11 @@ color: #e4baa0;-->
       </nav>
       <div class="content">
         <h1>BOOLBNB</h1>
+        
         <router-link :to="{ name: 'ApartmentsList' }" class="text-white">
           Explore
         </router-link>
+        
       </div>
     </div>
     <div class="intro col-12">
@@ -128,7 +130,7 @@ nav ul li a:hover {
   color: transparent;
 }
 
-.content router-link {
+.content a{
   text-decoration: none;
   display: inline-block;
   color: white;
@@ -140,7 +142,7 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 
-.content router-link:hover {
+.content a:hover {
   background-color: #e4baa0;
 }
 
