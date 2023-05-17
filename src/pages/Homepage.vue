@@ -1,6 +1,4 @@
-<script setup>
-import ApartmentsList from "./ApartmentsList.vue";
-</script>
+<script></script>
 
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,7 +14,7 @@ import ApartmentsList from "./ApartmentsList.vue";
   <!--color: #fcf9f9;
 color: #e4baa0;-->
 
-  <header>
+  <div>
     <div class="hero">
       <video autoplay loop muted plays-inline class="back-video">
         <source
@@ -25,23 +23,12 @@ color: #e4baa0;-->
         />
       </video>
 
-      <nav>
-        <img
-          src="kisspng-airbnb-logo-airbnb-logo-5b167f0e623554.9749034315282009744023.png"
-          alt=""
-        />
-        <ul>
-          <li><a href="http://127.0.0.1:8000/register">REGISTER</a></li>
-          <li><a href="http://127.0.0.1:8000/login">LOG IN</a></li>
-        </ul>
-      </nav>
       <div class="content">
         <h1>BOOLBNB</h1>
-        
+
         <router-link :to="{ name: 'ApartmentsList' }" class="text-white">
           Explore
         </router-link>
-        
       </div>
     </div>
     <div class="intro col-12">
@@ -68,7 +55,7 @@ color: #e4baa0;-->
         </p>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <style>
@@ -94,26 +81,6 @@ nav {
   justify-content: space-between;
 }
 
-nav img {
-  width: 80px;
-}
-
-nav ul li {
-  list-style: none;
-  display: inline-block;
-  margin-left: 40px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 17px;
-}
-
-nav ul li a:hover {
-  color: #e4baa0;
-}
-
 .content {
   text-align: center;
 }
@@ -130,7 +97,7 @@ nav ul li a:hover {
   color: transparent;
 }
 
-.content a{
+.content a {
   text-decoration: none;
   display: inline-block;
   color: white;
