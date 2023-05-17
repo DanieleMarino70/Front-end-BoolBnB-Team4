@@ -1,4 +1,6 @@
 <script>
+import ApartmentsCard from "./ApartmentsCard.vue";
+
 import axios from "axios";
 
 export default {
@@ -6,6 +8,9 @@ export default {
     return {
       apartments: [],
     };
+    
+    
+   
   },
 
   methods: {
@@ -20,11 +25,20 @@ export default {
   created() {
     this.fetchApartments();
   },
+
+  components:{ApartmentsCard},
 };
 </script>
 
 <template>
-  <li v-for="apartment in apartments">{{ apartment.title }}</li>
+  
+  <ApartmentsCard 
+   v-for="apartment in apartments" 
+    :title="apartment.title"
+    :address="apartment.address"
+    :image="apartment.image"
+    />
+  
 </template>
 
 <style lang="scss" scoped></style>

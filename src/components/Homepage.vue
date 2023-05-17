@@ -1,5 +1,6 @@
-<script setup>
-import ApartmentsList from "./ApartmentsList.vue";
+<script>
+
+
 </script>
 
 <template>
@@ -69,6 +70,8 @@ color: #e4baa0;-->
       </div>
     </div>
   </header>
+
+  
 </template>
 
 <style>
