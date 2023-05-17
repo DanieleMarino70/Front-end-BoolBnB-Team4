@@ -9,6 +9,9 @@
 
  <link rel="stylesheet" href="style.css">
 
+<!--color: #fcf9f9;
+color: #e4baa0;-->
+
  <header>
      <div class="hero">
 
@@ -19,12 +22,12 @@
 
 
         <nav>
-           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-rBzei1zTMrERZ73cBQh7HuGs-Ot3KOWYmZZGyb30&s" alt="">
+           <img src="kisspng-airbnb-logo-airbnb-logo-5b167f0e623554.9749034315282009744023.png" alt="">
            <ul>
-            <li><a  href=""></a>HOME</li>
-            <li><a  href=""></a>SERVICES</li>
-            <li><a  href=""></a>MESSAGES</li>
-            <li><a  href=""></a>CONTACT US</li>
+            <li><a href="">HOME</a></li>
+            <li><a  href="">SERVICES</a></li>
+            <li><a  href="">MESSAGES</a></li>
+            <li><a  href="">CONTACT US</a></li>
            </ul>
         </nav>
         <div class="content">
@@ -74,6 +77,10 @@
       text-decoration: none;
       color: white;
       font-size: 17px;
+   }
+
+    nav ul li a:hover{
+      color: #e4baa0;
    }
 
    .content{
