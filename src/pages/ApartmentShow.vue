@@ -1,31 +1,23 @@
 <script>
 import axios from "axios";
+
+import ApartmentsCard from "../components/ApartmentsCard.vue";
+
 export default {
   data() {
-    return {};
-  },
-  methods: {
-    fetchApartment() {
-      const apartmentId = this.$route.params.id;
-      axios
-        .get(`http://127.0.0.1:8000/api/apartments/${apartmentId}`)
-        .then((response) => {
-          this.apartment = response.data;
-        });
-    },
-    fetchServices() {
-      const apartmentId = this.$route.params.id;
-      axios
-        .get(`http://127.0.0.1:8000/api/apartments/${apartmentId}/services`)
-        .then((response) => {
-          this.services = response.data;
-        });
-    },
+    return { apartment: null };
   },
   created() {
-    this.fetchServices();
-    this.fetchApartment();
+    const apartmentId = this.$route.params.id;
+    console.log(apartmentId);
+    axios
+      .get(`http://127.0.0.1:8000/api/apartments/${apartmentId}`)
+      .then((response) => {
+        this.apartment = response.data;
+      });
   },
+
+  components: { ApartmentsCard },
 };
 </script>
 
@@ -35,6 +27,8 @@ export default {
       <div class="col">
         <ul>
           <li></li>
+          <li>{{ apartment.description }}</li>
+          <li>{{ apartment.rooms }}</li>
         </ul>
       </div>
     </div>

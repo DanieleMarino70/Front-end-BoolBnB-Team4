@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import ApartmentsCard from "../components/ApartmentsCard.vue";
+import ApartmentsAll from "../components/ApartmentsAll.vue";
 
 export default {
   data() {
@@ -18,23 +18,12 @@ export default {
   created() {
     this.fetchApartments();
   },
-  components: { ApartmentsCard },
+  components: { ApartmentsAll },
 };
 </script>
 
 <template>
-  <div class="container my-4">
-    <div class="row row-cols-3">
-      <ApartmentsCard
-        class="col"
-        v-for="apartment in apartments"
-        :key="apartment.id"
-        :title="apartment.title"
-        :address="apartment.address"
-        :image="apartment.image"
-      />
-    </div>
-  </div>
+  <ApartmentsAll :apartments="apartments" />
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,8 +1,9 @@
 <script>
 export default {
   props: {
-    key: String,
+    id: Number,
     title: String,
+    apartment: Object,
     address: String,
     image: Image,
   },
@@ -13,7 +14,15 @@ export default {
   <div class="card" style="width: 18rem">
     <img class="card-img-top" :src="image" alt="Card image cap" />
     <div class="card-body">
-      <router-link :to="{ name: 'ApartmentShow' }">
+      <router-link
+        :to="{
+          name: 'ApartmentShow',
+          params: {
+            id: id,
+          },
+        }"
+        :apartment="apartment"
+      >
         {{ title }}
       </router-link>
     </div>
