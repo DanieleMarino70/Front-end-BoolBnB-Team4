@@ -23,12 +23,17 @@ export default {
 </script>
 
 <template>
-  <ApartmentsCard
-    v-for="apartment in apartments"
-    :title="apartment.title"
-    :address="apartment.address"
-    :image="apartment.image"
-  />
+  <div class="container my-4">
+    <div class="row row-cols-3">
+      <ApartmentsCard
+        class="col"
+        v-for="apartment in apartments"
+        :title="apartment.title"
+        :address="apartment.address"
+        :image="apartment.image"
+      />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

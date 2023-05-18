@@ -28,7 +28,7 @@ color: #e4baa0;-->
         </router-link>
       </div>
     </div>
-    <div class="intro col-12">
+    <div class="container intro col-12">
       <div class="col-8 offset-2 text-center p-5">
         <h1>SEI FINALMENTE A CASA CON BOOLBNB!</h1>
         <p>
@@ -118,20 +118,15 @@ nav {
 .intro h1 {
   color: #e4baa0;
 }
-.intro {
+/* .intro {
   opacity: 0;
   filter: blur(5px);
   transform: translateX(-100%);
   transition: all 1s;
-}
+} */
 @media (prefers-reduced-motion) {
   .intro {
     transition: none;
   }
-}
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
 }
 </style>
