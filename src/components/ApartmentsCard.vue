@@ -16,12 +16,20 @@ export default {
       <h5 class="card-title fw-bold">{{ title }}</h5>
       <p class="card-text text-muted">{{ address }}</p>
       <a href="#" class="text-center">CONTATTA HOST</a>
-      
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+
+.neon{
+  color: #fff;
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,0 0 15px #e4baa0,
+  0 0 20px #e4baa0,0 0 25px #e4baa0,
+  0 0 30px #e4baa0,0 0 35px #e4baa0,
+}
+
 .card-body{
   display: flex;
   flex-grow: 0;
@@ -32,6 +40,11 @@ export default {
 .apartmentcard{
   border:transparent;
   height: 100%;
+  transition: all 0.3s;
+}
+
+.apartmentcard:hover{
+  transform: scale(1.08);
 }
 
 .apartmentcard img{
