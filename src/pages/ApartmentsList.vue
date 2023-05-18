@@ -28,6 +28,7 @@ export default {
       <ApartmentsCard
         class="col"
         v-for="apartment in apartments"
+        :key="apartment.id"
         :title="apartment.title"
         :address="apartment.address"
         :image="apartment.image"
