@@ -60,42 +60,25 @@ export default {
     },
 
     searchApartments() {
-      //this.$emit("on-search", this.searchedLocation); 
       const searchedLocation = this.searchedLocation;
       const newSearchParams = { ...this.searchParams };
 
-      axios
-        .get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`)
-        .then((response) => {
-          //console.log(response);
+      const tomtomRequest = axios.get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`);
+      const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`);
 
-          const coordinates = response.data.results[0].position;
+      Promise.all([tomtomRequest, apartmentsRequest])
+        .then(([tomtomResponse, apartmentsResponse]) => {
+          const coordinates = tomtomResponse.data.results[0].position;
           newSearchParams.latitude = coordinates.lat;
           newSearchParams.longitude = coordinates.lon;
-          console.log(newSearchParams);
 
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+          this.apartments = apartmentsResponse.data.apartments;
 
-      
-      axios
-        .get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`)
-        .then((response) => {
-          console.log(response);
-
-          this.apartments = response.data.apartments;
-          console.log(this.apartments);
-
-           // Filter apartments based on minRooms, minBeds, and latitude/longitude
-            this.filteredApartments = this.apartments.filter((apartment) => 
-            {
+          // Filter apartments based on minRooms, minBeds, and latitude/longitude
+          this.filteredApartments = this.apartments.filter((apartment) => {
             const apartmentLatitude = parseFloat(apartment.latitude);
             const apartmentLongitude = parseFloat(apartment.longitude);
             const radiusInKms = parseInt(newSearchParams.radius);
-
-            console.log(radiusInKms);
 
             const distance = this.calculateDistance(
               newSearchParams.latitude,
@@ -117,13 +100,14 @@ export default {
             }
             // You can add additional filtering conditions if needed
             return true;
+          });
+
+          console.log(this.filteredApartments);
         })
-        console.log(this.filteredApartments);
-      })
         .catch((error) => {
           console.error(error);
         });
-      },
+    },
     },
   }
 </script>
