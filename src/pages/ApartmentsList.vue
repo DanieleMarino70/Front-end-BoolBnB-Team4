@@ -43,7 +43,7 @@ export default {
     </div>
     <div class="container my-4">
       <div
-        class="row row-cols-3 d-flex align-items-center justify-content-center gap-5"
+        class="d-flex flex-row justify-content-center align-items-center flex-wrap"
       >
         <ApartmentsAll :apartments="apartments" />
       </div>

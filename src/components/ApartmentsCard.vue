@@ -12,9 +12,10 @@ export default {
 </script>
 
 <template>
+
   <div
     class="apartmentcard card p-3 bg-white"
-    style="width: 18rem; height: 26rem"
+    style="width: 18rem; height: 15rem"
   >
     <img
       class="card-img-top"
@@ -36,6 +37,7 @@ export default {
       </router-link>
     </div>
   </div>
+
 </template>
 
 <style lang="scss" scoped>
