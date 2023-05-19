@@ -1,11 +1,13 @@
 <script>
 import axios from "axios";
 import ApartmentsAll from "../components/ApartmentsAll.vue";
+import SearchBar from "../components/SearchBar.vue";
 
 export default {
   data() {
     return {
       apartments: [],
+      
     };
   },
   methods: {
@@ -18,7 +20,7 @@ export default {
   created() {
     this.fetchApartments();
   },
-  components: { ApartmentsAll },
+  components: { ApartmentsAll, SearchBar },
 };
 </script>
 
@@ -31,6 +33,13 @@ export default {
   />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="main.js" />
+
+  <section>
+    <div class="container">
+      <SearchBar placeholder="Cerca"></SearchBar>
+    </div>
+  </section>
+
   <section>
     <div class="textanimatedcontainer">
       <h2 class="title">
