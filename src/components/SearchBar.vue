@@ -31,10 +31,53 @@ export default {
       this.searchParams.latitude = null;
     },
 
+    calculateDistance(lat1, lon1, lat2, lon2) {
+      const earthRadius = 6371; // Radius of the Earth in kilometers
+
+      // Convert latitude and longitude values to radians
+      const radLat1 = this.degreesToRadians(lat1);
+      const radLon1 = this.degreesToRadians(lon1);
+      const radLat2 = this.degreesToRadians(lat2);
+      const radLon2 = this.degreesToRadians(lon2);
+
+      // Calculate the differences between the coordinates
+      const deltaLat = radLat2 - radLat1;
+      const deltaLon = radLon2 - radLon1;
+
+      // Calculate the distance using the Haversine formula
+      const a =
+        Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
+        Math.cos(radLat1) * Math.cos(radLat2) *
+        Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = earthRadius * c;
+
+      return distance;
+    },
+
+    degreesToRadians(degrees) {
+      return degrees * (Math.PI / 180);
+    },
+
     searchApartments() {
       //this.$emit("on-search", this.searchedLocation); 
       const searchedLocation = this.searchedLocation;
       const newSearchParams = { ...this.searchParams };
+
+      axios
+        .get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`)
+        .then((response) => {
+          //console.log(response);
+
+          const coordinates = response.data.results[0].position;
+          newSearchParams.latitude = coordinates.lat;
+          newSearchParams.longitude = coordinates.lon;
+          console.log(newSearchParams);
+
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
       
       axios
@@ -45,29 +88,43 @@ export default {
           this.apartments = response.data.apartments;
           console.log(this.apartments);
 
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      
+           // Filter apartments based on minRooms, minBeds, and latitude/longitude
+            this.filteredApartments = this.apartments.filter((apartment) => 
+            {
+            const apartmentLatitude = parseFloat(apartment.latitude);
+            const apartmentLongitude = parseFloat(apartment.longitude);
+            const radiusInKms = parseInt(newSearchParams.radius);
 
-      axios
-        .get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`)
-        .then((response) => {
-          console.log(response);
-          
-          const coordinates = response.data.results[0].position;
-          newSearchParams.latitude = coordinates.lat;
-          newSearchParams.longitude = coordinates.lon;
-          console.log(newSearchParams);
-          
+            console.log(radiusInKms);
+
+            const distance = this.calculateDistance(
+              newSearchParams.latitude,
+              newSearchParams.longitude,
+              apartmentLatitude,
+              apartmentLongitude
+            );
+
+            console.log(distance);
+
+            if (distance > radiusInKms) {
+              return false;
+            }
+            if (newSearchParams.minRooms > apartment.rooms) {
+              return false;
+            }
+            if (newSearchParams.minBeds > apartment.beds) {
+              return false;
+            }
+            // You can add additional filtering conditions if needed
+            return true;
         })
+        console.log(this.filteredApartments);
+      })
         .catch((error) => {
           console.error(error);
         });
+      },
     },
-
-  },
   }
 </script>
 
