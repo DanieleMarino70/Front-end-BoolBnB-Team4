@@ -14,13 +14,23 @@ export default {
         minBeds: null,
         minRooms: null,
       },
-      apartments:[],
+      apartments: [],
       filteredApartments: [],
+      el: '.wrapper',
+
     }
   },
+
+  computed: {
+    total: function () {
+      return this.searchParams.radius
+    }
+  },
+
   props: {
     placeholder: String,
   },
+
 
   emits: ["on-search"],
 
@@ -108,8 +118,8 @@ export default {
           console.error(error);
         });
     },
-    },
-  }
+  },
+}
 </script>
 
 
@@ -129,12 +139,12 @@ export default {
           <input type="number" class="form-control" v-model="searchParams.minBeds">
         </div>
         <div class="col-3 mt-3">
-            <label for="">Numero Stanze</label>
-            <input type="number" class="form-control" v-model="searchParams.minRooms">
+          <label for="">Numero Stanze</label>
+          <input type="number" class="form-control" v-model="searchParams.minRooms">
         </div>
-        <div class="col-3 mt-3">
-              <label for="">Raggio 20Km</label>
-              <input type="range" class="form-range" id="customRange1" min="1" max="20" v-model="searchParams.radius">
+        <div class="col-3 mt-3 wrapper">
+          <label for="">Raggio <span v-text="total"></span> Km</label>
+          <input type="range" class="form-range" id="customRange1" min="1" max="20" v-model="searchParams.radius">
         </div>
       </div>
     </div>
