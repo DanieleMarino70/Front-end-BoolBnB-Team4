@@ -31,7 +31,7 @@ export default {
 
       axios
         .post(
-          `http://127.0.0.1:8000/api/${this.apartment_id}/messages`,
+          `http://127.0.0.1:8000/api/apartments/${this.apartment_id}/messages`,
           message
         )
         .then((response) => {
@@ -39,6 +39,9 @@ export default {
           this.message.name = "";
           this.message.surname = "";
           this.message.text = "";
+        })
+        .catch((error) => {
+          console.error(error);
         });
     },
   },

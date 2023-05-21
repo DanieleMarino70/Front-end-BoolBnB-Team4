@@ -29,10 +29,12 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="http://127.0.0.1:8000/register"
+                >Register</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
             </li>
             <li class="nav-item">
               <router-link :to="{ name: 'ApartmentsList' }" class="nav-link">
