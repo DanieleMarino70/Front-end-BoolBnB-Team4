@@ -57,67 +57,66 @@ AOS.init();
       <div class="col contcard p-4">
         <ul class="d-flex flex-row">
           <div>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">ID:</p>
-              <p class="text-dark">{{ apartment.id }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Nome Appartamento:</p>
-              <p class="text-dark">{{ apartment.title }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Indirizzo:</p>
-              <p class="text-dark">{{ apartment.address }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di stanze:</p>
-              <p class="text-dark">{{ apartment.rooms }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di letti:</p>
-              <p class="text-dark">{{ apartment.beds }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di bagni:</p>
-              <p class="text-dark">{{ apartment.bathrooms }}</p>
-            </div>
-          </li>
-           <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Metri quadri:</p>
-              <p class="text-dark">{{ apartment.square_meters }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-row gap-3">
-              <p class="text-white">Visibilità:</p>
-              <p class="text-dark">{{ apartment.visibility }}</p>
-            </div>
-          </li>
-          <li>
-            <div class="d-flex flex-column gap-3">
-              <p class="text-white">Descrizione:</p>
-              <p class="text-dark">{{ apartment.description }}</p>
-            </div>
-          </li>
-          <p class="text-white">Servizi:</p>
-          <li v-for="service in apartment.service">
-            <span class="servicetype">
-                <i class="fa-solid fa-check"></i> {{ service.name }} 
-            </span>
-          </li>
-          
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">ID:</p>
+                <p class="text-dark">{{ apartment.id }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Nome Appartamento:</p>
+                <p class="text-dark">{{ apartment.title }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Indirizzo:</p>
+                <p class="text-dark">{{ apartment.address }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Numero di stanze:</p>
+                <p class="text-dark">{{ apartment.rooms }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Numero di letti:</p>
+                <p class="text-dark">{{ apartment.beds }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Numero di bagni:</p>
+                <p class="text-dark">{{ apartment.bathrooms }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Metri quadri:</p>
+                <p class="text-dark">{{ apartment.square_meters }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3">
+                <p class="text-white">Visibilità:</p>
+                <p class="text-dark">{{ apartment.visibility }}</p>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-column gap-3">
+                <p class="text-white">Descrizione:</p>
+                <p class="text-dark">{{ apartment.description }}</p>
+              </div>
+            </li>
+            <p class="text-white">Servizi:</p>
+            <li v-for="service in apartment.service">
+              <span class="servicetype">
+                <i class="fa-solid fa-check"></i> {{ service.name }}
+              </span>
+            </li>
           </div>
           <div>
             <li class="imagelist">
@@ -162,10 +161,7 @@ li {
   transition: 0.8s;
 }
 
-  .servicetype:hover{
-    color: rgb(112, 255, 83);
-    
-  }
-
-  
+.servicetype:hover {
+  color: rgb(112, 255, 83);
+}
 </style>
