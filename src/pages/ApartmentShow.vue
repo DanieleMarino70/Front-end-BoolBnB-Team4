@@ -53,55 +53,55 @@ AOS.init();
           <div>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">ID:</p>
+              <p class="titletext">ID:</p>
               <p class="text-dark">{{ apartment.id }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Nome Appartamento:</p>
+              <p class="titletext">Nome Appartamento:</p>
               <p class="text-dark">{{ apartment.title }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Indirizzo:</p>
+              <p class="titletext">Indirizzo:</p>
               <p class="text-dark">{{ apartment.address }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di stanze:</p>
+              <p class="titletext">Numero di stanze:</p>
               <p class="text-dark">{{ apartment.rooms }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di letti:</p>
+              <p class="titletext">Numero di letti:</p>
               <p class="text-dark">{{ apartment.beds }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di bagni:</p>
+              <p class="titletext">Numero di bagni:</p>
               <p class="text-dark">{{ apartment.bathrooms }}</p>
             </div>
           </li>
            <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Metri quadri:</p>
+              <p class="titletext">Metri quadri:</p>
               <p class="text-dark">{{ apartment.square_meters }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Visibilità:</p>
+              <p class="titletext">Visibilità:</p>
               <p class="text-dark">{{ apartment.visibility }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-column gap-3">
-              <p class="text-white">Descrizione:</p>
+              <p class="titletext">Descrizione:</p>
               <p class="text-dark">{{ apartment.description }}</p>
             </div>
           </li>
@@ -165,6 +165,10 @@ AOS.init();
     color: rgb(112, 255, 83);
     
   }
+
+.titletext{
+  color: #fbf9fc;
+}
 
   
 </style>
