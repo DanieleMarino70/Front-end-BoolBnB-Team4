@@ -10,11 +10,11 @@ export default {
 
   data() {
     return {
-      message: {
+      userMessage: {
         email: "",
         name: "",
         surname: "",
-        text: "",
+        message: "",
       },
     };
   },
@@ -23,22 +23,22 @@ export default {
     sendMessage() {
       const message = {
         apartment_id: this.apartment_id,
-        email: this.message.email,
-        name: this.message.name,
-        surname: this.message.surname,
-        text: this.message.text,
+        email: this.userMessage.email,
+        name: this.userMessage.name,
+        surname: this.userMessage.surname,
+        message: this.userMessage.message,
       };
 
       axios
         .post(
-          `http://127.0.0.1:8000/api/apartments/${this.apartment_id}/messages`,
+          `http://127.0.0.1:8000/api/apartments/${message.apartment_id}/messages`,
           message
         )
         .then((response) => {
-          this.message.email = "";
-          this.message.name = "";
-          this.message.surname = "";
-          this.message.text = "";
+          this.userMessage.email = "";
+          this.userMessage.name = "";
+          this.userMessage.surname = "";
+          this.userMessage.message = "";
         })
         .catch((error) => {
           console.error(error);
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-  <form @submit="sendMessage">
+  <form @submit.prevent="sendMessage">
     <div>
       <div class="my-4">
         <h5 class="text-center fw-bold color-primary">
@@ -62,7 +62,7 @@ export default {
         <input
           type="email"
           id="email"
-          v-model="message.email"
+          v-model="userMessage.email"
           class="form-control"
           minlength="5"
           maxlength="255"
@@ -74,7 +74,7 @@ export default {
         <input
           type="text"
           id="name"
-          v-model="message.name"
+          v-model="userMessage.name"
           class="form-control"
           minlength="2"
           maxlength="60"
@@ -86,7 +86,7 @@ export default {
         <input
           type="text"
           id="surname"
-          v-model="message.surname"
+          v-model="userMessage.surname"
           class="form-control"
           minlength="3"
           maxlength="60"
@@ -99,7 +99,7 @@ export default {
         <textarea
           type="text"
           id="text"
-          v-model="message.text"
+          v-model="userMessage.message"
           class="form-control"
           minlength="4"
           maxlength="65535"
