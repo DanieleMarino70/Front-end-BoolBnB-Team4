@@ -1,14 +1,17 @@
 <script>
 import axios from "axios";
 import ApartmentsAll from "../components/ApartmentsAll.vue";
+import ApartmentsFiltered from "../components/ApartmentsFiltered.vue";
 import SearchBar from "../components/SearchBar.vue";
 import { onMounted } from "vue";
 import AOS from "aos";
+import { store } from "../store";
 
 export default {
   data() {
     return {
       apartments: [],
+      store,
       
     };
   },
@@ -22,7 +25,7 @@ export default {
   created() {
     this.fetchApartments();
   },
-  components: { ApartmentsAll, SearchBar },
+  components: { ApartmentsAll, SearchBar, ApartmentsFiltered },
 };
 
 
@@ -47,6 +50,17 @@ export default {
       <SearchBar placeholder="Cerca"></SearchBar>
     </div>
   </section>
+
+  
+    <section v-if="store.filteredApartments">
+      <div class="container my-4">
+          <div 
+            class="d-flex flex-row justify-content-center align-items-center flex-wrap"
+          >
+            <ApartmentsFiltered :apartments="store.filteredApartments" />
+          </div>
+        </div>
+    </section>
 
   <section>
     <div class="textanimatedcontainer">

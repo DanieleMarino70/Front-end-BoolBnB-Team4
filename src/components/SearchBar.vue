@@ -1,5 +1,6 @@
 <script>
 import axios, { Axios } from 'axios';
+import { store } from '../store';
 
 
 export default {
@@ -15,7 +16,7 @@ export default {
         minRooms: null,
       },
       apartments: [],
-      filteredApartments: [],
+      store,
       el: '.wrapper',
 
     }
@@ -85,7 +86,7 @@ export default {
           this.apartments = apartmentsResponse.data.apartments;
 
           // Filter apartments based on minRooms, minBeds, and latitude/longitude
-          this.filteredApartments = this.apartments.filter((apartment) => {
+          store.filteredApartments = this.apartments.filter((apartment) => {
             const apartmentLatitude = parseFloat(apartment.latitude);
             const apartmentLongitude = parseFloat(apartment.longitude);
             const radiusInKms = parseInt(newSearchParams.radius);
@@ -112,7 +113,7 @@ export default {
             return true;
           });
 
-          console.log(this.filteredApartments);
+          console.log(store.filteredApartments);
         })
         .catch((error) => {
           console.error(error);
