@@ -35,6 +35,8 @@ AOS.init();
     rel="stylesheet"
   />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <div class="container">
     <div class="row justify-content-center">
       <div class="col contcard p-4">
@@ -66,14 +68,14 @@ AOS.init();
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di stanze:</p>
-              <p class="text-dark">{{ apartment.rooms }}</p>
+              <p class="text-white">Numero di letti:</p>
+              <p class="text-dark">{{ apartment.beds }}</p>
             </div>
           </li>
           <li>
             <div class="d-flex flex-row gap-3">
-              <p class="text-white">Numero di stanze:</p>
-              <p class="text-dark">{{ apartment.rooms }}</p>
+              <p class="text-white">Numero di bagni:</p>
+              <p class="text-dark">{{ apartment.bathrooms }}</p>
             </div>
           </li>
            <li>
@@ -89,11 +91,18 @@ AOS.init();
             </div>
           </li>
           <li>
-            <div class="d-flex flex-column gap-3 ">
+            <div class="d-flex flex-column gap-3">
               <p class="text-white">Descrizione:</p>
               <p class="text-dark">{{ apartment.description }}</p>
             </div>
           </li>
+          <p class="text-white">Servizi:</p>
+          <li v-for="service in apartment.service">
+            <span class="servicetype">
+                <i class="fa-solid fa-check"></i> {{ service.name }} 
+            </span>
+          </li>
+          
           </div>
           <div>
           <li class="imagelist">
@@ -134,6 +143,17 @@ AOS.init();
     background-color:#e4baa0;
     font-family:'Fjalla One', sans-serif; 
     border-radius: 10px;
+    
+  }
+
+  .servicetype{
+    color: black;
+    transition: 0.8s;
+    
+  }
+
+  .servicetype:hover{
+    color: rgb(112, 255, 83);
     
   }
 
