@@ -1,4 +1,9 @@
-<script></script>
+<script>
+import { onMounted } from "vue";
+import AOS from "aos";
+
+AOS.init();
+</script>
 
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +33,8 @@ color: #e4baa0;-->
         </router-link>
       </div>
     </div>
-    <div class="container intro col-12">
+    <div data-aos="fade-up"
+      data-aos-duration="1000" class="container intro col-12">
       <div class="col-8 offset-2 text-center p-5">
         <h1>SEI FINALMENTE A CASA CON BOOLBNB!</h1>
         <p>

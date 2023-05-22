@@ -2,6 +2,8 @@
 import axios from "axios";
 import ApartmentsAll from "../components/ApartmentsAll.vue";
 import SearchBar from "../components/SearchBar.vue";
+import { onMounted } from "vue";
+import AOS from "aos";
 
 export default {
   data() {
@@ -22,6 +24,11 @@ export default {
   },
   components: { ApartmentsAll, SearchBar },
 };
+
+
+
+    AOS.init();
+
 </script>
 
 <template>
@@ -33,6 +40,7 @@ export default {
   />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="main.js" />
+  
 
   <section>
     <div class="container">
@@ -51,14 +59,18 @@ export default {
       </h2>
     </div>
     <div class="container my-4">
-      <div
+      <div 
         class="d-flex flex-row justify-content-center align-items-center flex-wrap"
       >
         <ApartmentsAll :apartments="apartments" />
       </div>
     </div>
   </section>
+  
 </template>
+
+
+
 
 <style lang="scss" scoped>
 template {

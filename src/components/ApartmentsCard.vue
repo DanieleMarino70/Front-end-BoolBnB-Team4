@@ -1,4 +1,7 @@
 <script>
+import { onMounted } from "vue";
+import AOS from "aos";
+
 export default {
   props: {
     id: Number,
@@ -9,11 +12,13 @@ export default {
     image: Image,
   },
 };
+
+  AOS.init();
 </script>
 
 <template>
 
-  <div
+  <div data-aos="flip-up" data-aos-duration="1000"
     class="apartmentcard card p-3 bg-white"
     style="width: 18rem; height: 15rem"
   >
