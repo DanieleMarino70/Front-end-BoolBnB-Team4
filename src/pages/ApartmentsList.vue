@@ -4,11 +4,13 @@ import ApartmentsAll from "../components/ApartmentsAll.vue";
 import SearchBar from "../components/SearchBar.vue";
 import { onMounted } from "vue";
 import AOS from "aos";
+import { store } from "../store";
 
 export default {
   data() {
     return {
       apartments: [],
+      store,
       
     };
   },
