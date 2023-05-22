@@ -50,15 +50,16 @@ export default {
 
 <template>
   <form @submit.prevent="sendMessage">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div>
       <div class="my-4">
-        <h5 class="text-center fw-bold color-primary">
-          Do you want to know more?
+        <h5 class="text-center fw-bold color-primary neon-text">
+          Vuoi saperne di più su questo appartamento?
         </h5>
       </div>
 
       <div>
-        <label for="email">Email</label>
+        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
         <input
           type="email"
           id="email"
@@ -70,7 +71,7 @@ export default {
         />
       </div>
       <div>
-        <label for="name">Name</label>
+        <label for="name"><i class="fa-solid fa-file-signature"></i> Name</label>
         <input
           type="text"
           id="name"
@@ -82,7 +83,7 @@ export default {
         />
       </div>
       <div class="mb-2">
-        <label for="surname">Surname</label>
+        <label for="surname"><i class="fa-solid fa-file-signature"></i> Surname</label>
         <input
           type="text"
           id="surname"
@@ -95,7 +96,7 @@ export default {
       </div>
 
       <div>
-        <label for="text">Message</label>
+        <label for="text"><i class="fa-solid fa-message"></i> Message</label>
         <textarea
           type="text"
           id="text"
@@ -107,10 +108,45 @@ export default {
         ></textarea>
       </div>
     </div>
-    <div>
+    <div class="text-center">
       <button type="submit">Contact host</button>
     </div>
   </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+button{
+  text-decoration: none;
+  display: inline-block;
+  color: #e4baa0;
+  font-size: 24px;
+  border: 2px solid white;
+  padding: 14px 70px;
+  border-radius: 50px;
+  margin-top: 20px;
+  transition: 0.5s;
+}
+button:hover {
+  background-color: white;
+  transform: scale(1.04);
+}
+
+.neon-text{
+  color: white;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #fbf9fc,
+      0 0 82px #fbf9fc,
+      0 0 92px #fbf9fc ,
+      0 0 102px #fbf9fc,
+      0 0 151px #fbf9fc;
+
+       text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+
+</style>
