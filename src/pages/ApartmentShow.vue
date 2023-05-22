@@ -3,6 +3,7 @@ import axios from "axios";
 
 import ApartmentsCard from "../components/ApartmentsCard.vue";
 import MessageForm from "../components/MessageForm.vue";
+import MapComponent from "../components/MapComponent.vue";
 import ApartmentsAllVue from "../components/ApartmentsAll.vue";
 
 export default {
@@ -18,7 +19,7 @@ export default {
       });
   },
 
-  components: { ApartmentsCard, MessageForm },
+  components: { ApartmentsCard, MessageForm, MapComponent },
 };
 </script>
 
@@ -29,9 +30,10 @@ export default {
         <ul>
           <li></li>
           <!-- <li>{{ apartment.description }}</li>
-          <li>{{ apartment.rooms }}</li> -->
+            <li>{{ apartment.rooms }}</li> -->
           <li>{{ apartment.id }}</li>
         </ul>
+        <MapComponent :lat="apartment.latitude" :lon="apartment.longitude" />
         <MessageForm :apartment_id="apartment.id" />
       </div>
     </div>
