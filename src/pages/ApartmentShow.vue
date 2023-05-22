@@ -22,6 +22,15 @@ export default {
   },
 
   components: { ApartmentsCard, MessageForm, parseQuery },
+
+  methods: {
+    getImageUri(imagePath){
+      if (imagePath.startsWith('uploads')){
+        return 'http://127.0.0.1:8000/storage/' + imagePath;
+      }
+      return imagePath;
+    }
+  },
 };
 AOS.init();
 </script>
@@ -97,7 +106,7 @@ AOS.init();
           </div>
           <div>
           <li class="imagelist">
-            <img :src="apartment.image" alt="">
+            <img :src="getImageUri(apartment.image)" alt="">
           </li>
           </div>
           
