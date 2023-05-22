@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import ApartmentsList from "../pages/ApartmentsList.vue";
 import Homepage from "../pages/Homepage.vue";
 import ApartmentShow from "../pages/ApartmentShow.vue";
+import OurTeam from "../pages/OurTeam.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -23,6 +24,11 @@ const router = createRouter({
       path: "/apartments/:id",
       name: "ApartmentShow",
       component: ApartmentShow,
+    },
+    {
+      path: "/ourteam",
+      name: "OurTeam",
+      component: OurTeam,
     },
   ],
 });
