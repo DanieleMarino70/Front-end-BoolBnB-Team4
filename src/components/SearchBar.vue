@@ -14,6 +14,7 @@ export default {
         radius: "20",
         minBeds: null,
         minRooms: null,
+        services: [],
       },
       apartments: [],
       store,
@@ -73,6 +74,7 @@ export default {
     searchApartments() {
       const searchedLocation = this.searchedLocation;
       const newSearchParams = { ...this.searchParams };
+      //console.log(newSearchParams);
 
       const tomtomRequest = axios.get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`);
       const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`);
@@ -109,6 +111,17 @@ export default {
             if (newSearchParams.minBeds > apartment.beds) {
               return false;
             }
+
+            if (newSearchParams.services.length > 0) {
+              const apartmentServices = apartment.service.map((service) => service.id);
+              const selectedServices = newSearchParams.services;
+              console.log(apartmentServices);
+              // Check if any selected service is present in the apartment's services
+              if (!selectedServices.every((service) => apartmentServices.includes(service))) {
+                return false;
+              }
+            }
+
             // You can add additional filtering conditions if needed
             return true;
           });
@@ -146,6 +159,14 @@ export default {
         <div class="col-3 mt-3 wrapper">
           <label for="">Raggio <span v-text="total"></span> Km</label>
           <input type="range" class="form-range" id="customRange1" min="1" max="20" v-model="searchParams.radius">
+        </div>
+
+        <div class="col-12 mt-3">
+          <label>Services:</label>
+          <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
+            <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id" v-model="searchParams.services">
+            <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
+          </div>
         </div>
       </div>
     </div>
