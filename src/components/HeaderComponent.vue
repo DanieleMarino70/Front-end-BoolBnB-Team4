@@ -46,6 +46,11 @@
                 OurTeam
               </router-link>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:8000/admin/dashboard"
+                >Dashboard</a
+              >
+            </li>
           </ul>
         </div>
       </div>

@@ -11,21 +11,39 @@ export default {
   data() {
     return {
       userMessage: {
-        email: "",
         name: "",
         surname: "",
+        email: "",
         message: "",
       },
     };
   },
 
   methods: {
+    fetchUserData() {
+      axios
+        .get("http://127.0.0.1:8000/api/user") // Aggiungi l'endpoint corretto per ottenere i dati dell'utente
+        .then((response) => {
+          if (response.data.name) {
+            this.userMessage.name = response.data.name;
+          }
+
+          if (response.data.surname) {
+            this.userMessage.surname = response.data.surname;
+          }
+
+          this.userMessage.email = response.data.email;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     sendMessage() {
       const message = {
         apartment_id: this.apartment_id,
-        email: this.userMessage.email,
         name: this.userMessage.name,
         surname: this.userMessage.surname,
+        email: this.userMessage.email,
         message: this.userMessage.message,
       };
 
@@ -35,9 +53,9 @@ export default {
           message
         )
         .then((response) => {
-          this.userMessage.email = "";
           this.userMessage.name = "";
           this.userMessage.surname = "";
+          this.userMessage.email = "";
           this.userMessage.message = "";
         })
         .catch((error) => {
@@ -45,12 +63,22 @@ export default {
         });
     },
   },
+
+  created() {
+    this.fetchUserData();
+  },
 };
 </script>
 
 <template>
-  <form @submit.prevent="sendMessage">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <form @submit="sendMessage">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <div>
       <div class="my-4">
         <h5 class="text-center fw-bold color-primary neon-text">
@@ -59,19 +87,9 @@ export default {
       </div>
 
       <div>
-        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
-        <input
-          type="email"
-          id="email"
-          v-model="userMessage.email"
-          class="form-control"
-          minlength="5"
-          maxlength="255"
-          required
-        />
-      </div>
-      <div>
-        <label for="name"><i class="fa-solid fa-file-signature"></i> Name</label>
+        <label for="name"
+          ><i class="fa-solid fa-file-signature"></i> Name</label
+        >
         <input
           type="text"
           id="name"
@@ -83,7 +101,9 @@ export default {
         />
       </div>
       <div class="mb-2">
-        <label for="surname"><i class="fa-solid fa-file-signature"></i> Surname</label>
+        <label for="surname"
+          ><i class="fa-solid fa-file-signature"></i> Surname</label
+        >
         <input
           type="text"
           id="surname"
@@ -91,6 +111,19 @@ export default {
           class="form-control"
           minlength="3"
           maxlength="60"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+        <input
+          type="email"
+          id="email"
+          v-model="userMessage.email"
+          class="form-control"
+          minlength="5"
+          maxlength="255"
           required
         />
       </div>
@@ -115,7 +148,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-button{
+button {
   text-decoration: none;
   display: inline-block;
   color: #e4baa0;
@@ -131,22 +164,13 @@ button:hover {
   transform: scale(1.04);
 }
 
-.neon-text{
+.neon-text {
   color: white;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #fbf9fc,
-      0 0 82px #fbf9fc,
-      0 0 92px #fbf9fc ,
-      0 0 102px #fbf9fc,
-      0 0 151px #fbf9fc;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fbf9fc,
+    0 0 82px #fbf9fc, 0 0 92px #fbf9fc, 0 0 102px #fbf9fc, 0 0 151px #fbf9fc;
 
-       text-align: center;
+  text-align: center;
   text-transform: uppercase;
   font-weight: 400;
 }
-
-
 </style>
