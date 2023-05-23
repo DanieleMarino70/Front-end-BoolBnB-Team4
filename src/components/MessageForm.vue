@@ -165,9 +165,8 @@ button:hover {
 }
 
 .neon-text {
-  color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fbf9fc,
-    0 0 82px #fbf9fc, 0 0 92px #fbf9fc, 0 0 102px #fbf9fc, 0 0 151px #fbf9fc;
+  color: black;
+  
 
   text-align: center;
   text-transform: uppercase;
