@@ -53,81 +53,82 @@ AOS.init();
   />
 
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col contcard p-4">
-        <ul class="d-flex flex-row">
+    <div class="row  justify-content-center ">
+      <div class="col contcard p-3">
+        <ul class="d-flex flex-row gap-2 justify-content-between">
           <div>
-            <li>
+            <!--<li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">ID:</p>
-                <p class="text-dark">{{ apartment.id }}</p>
+                <p class="text-dark">ID:</p>
+                <p class="text-dark font-italic">{{ apartment.id }}</p>
+              </div>
+            </li>-->
+            <li>
+              <div class="d-flex flex-row gap-3 mt-2">
+                <h3 class="texttt">{{ apartment.title }}</h3>
+              </div>
+            </li>
+            <li>
+              <div class="d-flex flex-row gap-3 ">
+                <h5 class="textwt">{{ apartment.address }}</h5>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">Nome Appartamento:</p>
-                <p class="text-dark">{{ apartment.title }}</p>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex flex-row gap-3">
-                <p class="text-white">Indirizzo:</p>
-                <p class="text-dark">{{ apartment.address }}</p>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex flex-row gap-3">
-                <p class="text-white">Numero di stanze:</p>
+                <p class="textexplicit">Numero di stanze:</p>
                 <p class="text-dark">{{ apartment.rooms }}</p>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">Numero di letti:</p>
+                <p class="textexplicit"><i class="fa-solid fa-bed"></i></p>
                 <p class="text-dark">{{ apartment.beds }}</p>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">Numero di bagni:</p>
+                <p class="textexplicit"><i class="fa-solid fa-bath"></i></p>
                 <p class="text-dark">{{ apartment.bathrooms }}</p>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">Metri quadri:</p>
+                <p class="textexplicit">Metri quadri:</p>
                 <p class="text-dark">{{ apartment.square_meters }}</p>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="text-white">Visibilità:</p>
+                <p class="textexplicit">Visibilità:</p>
                 <p class="text-dark">{{ apartment.visibility }}</p>
               </div>
             </li>
             <li>
-              <div class="d-flex flex-column gap-3">
-                <p class="text-white">Descrizione:</p>
-                <p class="text-dark">{{ apartment.description }}</p>
-              </div>
-            </li>
-            <p class="text-white">Servizi:</p>
-            <li v-for="service in apartment.service">
-              <span class="servicetype">
-                <i class="fa-solid fa-check"></i> {{ service.name }}
-              </span>
+              
             </li>
           </div>
           <div>
-            <li class="imagelist">
-              <img :src="getImageUri(apartment.image)" alt="" />
-            </li>
+          <li class="imagelist">
+              <img :src="getImageUri(apartment.image)" alt="" style="width: 28vw;" />
+          </li>
           </div>
 
           <!-- <li>{{ apartment.description }}</li>
             <li>{{ apartment.rooms }}</li> -->
-          <li>{{ apartment.id }}</li>
+          
         </ul>
+        <div class="d-flex flex-column gap-3">
+                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">Descrizione:</p>
+                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">{{ apartment.description }}</p>
+        </div>
+        <div class="text-center mt-3 mb-3">
+        <p class="text-dark">Servizi:</p>
+            <li v-for="service in apartment.service">
+              <span class="servicetype">
+                <i class="fa-solid fa-check text-success"></i> {{ service.name }}
+              </span>
+            </li>
+        </div>
         <MapComponent :lat="apartment.latitude" :lon="apartment.longitude" />
         <MessageForm :apartment_id="apartment.id" />
       </div>
@@ -151,7 +152,9 @@ li {
 }
 
 .contcard {
-  background-color: #e4baa0;
+  background-color: #efefef;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
   font-family: "Fjalla One", sans-serif;
   border-radius: 10px;
 }
@@ -163,5 +166,17 @@ li {
 
 .servicetype:hover {
   color: rgb(112, 255, 83);
+}
+
+.texttt{
+  color:rgb(65, 65, 65);
+}
+
+.textwt{
+  color:rgb(95, 95, 95);
+}
+
+.textexplicit{
+  color:rgb(207, 207, 207);
 }
 </style>

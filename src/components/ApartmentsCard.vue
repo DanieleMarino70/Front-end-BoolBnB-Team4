@@ -20,13 +20,13 @@ export default {
 
   <div data-aos="flip-up" data-aos-duration="1000"
     class="apartmentcard card p-3 bg-white"
-    style="width: 18rem; height: 15rem"
+    style="width: 19rem; height: 15rem"
   >
     <img
       class="card-img-top"
       :src="image"
       alt="Card image cap"
-      style="width: 18vw; height: 20vh"
+      style="width: 100%; height: 20vh"
     />
     <div class="card-body">
       <router-link
