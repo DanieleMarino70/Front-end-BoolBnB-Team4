@@ -164,19 +164,12 @@ button:hover {
   transform: scale(1.04);
 }
 
-.neon-text{
+.neon-text {
   color: white;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px #fbf9fc,
-      0 0 82px #fbf9fc,
-      0 0 92px #fbf9fc ,
-      0 0 102px #fbf9fc,
-      0 0 151px #fbf9fc;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #fbf9fc,
+    0 0 82px #fbf9fc, 0 0 92px #fbf9fc, 0 0 102px #fbf9fc, 0 0 151px #fbf9fc;
 
-       text-align: center;
+  text-align: center;
   text-transform: uppercase;
   font-weight: 400;
 }
