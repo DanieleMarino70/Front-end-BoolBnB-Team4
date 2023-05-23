@@ -144,7 +144,7 @@ export default {
         <div class="col-12">
           <div class="input-group input-group-sm">
             <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation">
-            <button class="btn btn-danger" type="button" @click="searchApartments">Search</button>
+            <button class="btn btn-success" type="button" @click="searchApartments">Search</button>
             <button class="btn btn-danger" type="button" @click="clear">Reset</button>
           </div>
         </div>

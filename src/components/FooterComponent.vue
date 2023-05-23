@@ -15,35 +15,46 @@ export default {
 </script>
 
 <template>
-  <footer class="container py-5" >
+  
+  <footer class="container py-5 border-top" >
         <div class="row">
-          <div class="col-6 col-md-2 mb-3">
+          <div class="col-6 col-md-2 mb-3 text-center">
             <h5>Section</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+             <li class="nav-item">
+              <router-link :to="{ name: 'Homepage' }" class="nav-link text-secondary">
+                Home
+              </router-link>
+             </li>
+             <li class="nav-item">
+              <a class="nav-link text-secondary" href="http://127.0.0.1:8000/register"
+                >Register</a
+              >
+             </li>
+             <li class="nav-item">
+              <a class="nav-link text-secondary" href="http://127.0.0.1:8000/login">Login</a>
+             </li>
             </ul>
           </div>
 
-          <div class="col-6 col-md-2 mb-3">
+          <div class="col-6 col-md-2 mb-3 text-center">
             <h5>Section</h5>
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-          </div>
-
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+              <li class="nav-item">
+              <router-link :to="{ name: 'ApartmentsList' }" class="nav-link text-secondary">
+                Apartments
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link :to="{ name: 'OurTeam' }" class="nav-link text-secondary">
+                OurTeam
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="http://127.0.0.1:8000/admin/dashboard"
+                >Dashboard
+              </a>
+            </li>
             </ul>
           </div>
         </div>
