@@ -22,6 +22,8 @@ export default {
         :address="apartment.address"
         :image="apartment.image"
         :squaremeters="apartment.square_meters"
+        :beds="apartment.beds"
+        :bathrooms="apartment.bathrooms"
       />
     </div>
   </div>

@@ -10,6 +10,8 @@ export default {
     address: String,
     squaremeters: String,
     image: Image,
+    beds:Number,
+    bathrooms:Number,
   },
 };
 
@@ -17,10 +19,11 @@ export default {
 </script>
 
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <div data-aos="flip-up" data-aos-duration="1000"
+  <div data-aos="fade-up" data-aos-duration="1500"
     class="apartmentcard card p-3 bg-white"
-    style="width: 19rem; height: 15rem"
+    style="width: 19rem; height: 23rem"
   >
     <img
       class="card-img-top"
@@ -29,7 +32,26 @@ export default {
       style="width: 100%; height: 20vh"
     />
     <div class="card-body">
-      <router-link
+      
+      <div><h5>{{ title }}</h5></div>
+      <div ><p class="text-muted addresstext">{{ address }}</p></div>
+      
+      <div class="iconapplist d-flex flex-row ">
+        
+        <div class="beds">
+         <h5><i class="fas fa-bed"></i> <span>{{ beds }}</span> Bed</h5>
+        </div>
+       <div class="baths">
+        <h5><i class="fas fa-bath"></i> <span>{{ bathrooms }}</span> Bathrooms</h5>
+       </div>
+      
+      </div>
+      
+      
+      
+      
+      <div class="applistbutton d-flex align-self-center">
+       <router-link
         :to="{
           name: 'ApartmentShow',
           params: {
@@ -38,8 +60,10 @@ export default {
         }"
         :apartment="apartment"
       >
-        {{ title }}
-      </router-link>
+        DIMMI DI PIU
+       </router-link>
+      </div>
+      
     </div>
   </div>
 
@@ -88,4 +112,33 @@ export default {
   background-color: white;
   color: #e4baa0;
 }
+
+.addresstext{
+  font-size: 14px;
+}
+
+.applistbutton{
+  position: absolute;
+  bottom: 20px;
+  width: 75%;
+  text-align: center;
+}
+
+.applistbutton a{
+  width: 100%;
+  
+}
+
+.iconapplist{
+  position: absolute;
+  bottom: 80px;
+  gap: 127px;
+  
+}
+
+.iconapplist h5{
+  font-size: 12px;
+}
+
+
 </style>
