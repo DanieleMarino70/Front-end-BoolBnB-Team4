@@ -48,38 +48,28 @@ export default {
   <section>
     <div class="container">
       <SearchBar placeholder="Cerca"></SearchBar>
+      
     </div>
   </section>
 
   
     <section v-if="store.filteredApartments">
-      <div class="container my-4">
+      <div class="container">
           <div 
             class="d-flex flex-row justify-content-center align-items-center flex-wrap"
           >
             <ApartmentsFiltered :apartments="store.filteredApartments" />
-          </div>
-        </div>
-    </section>
-
-  <section>
-    <div class="textanimatedcontainer">
-      <h2 class="title">
-        <span class="title-word title-word-1">LIBERI</span>
-        <span class="title-word title-word-2">DI</span>
-        <span class="title-word title-word-3">SENTIRVI</span>
-        <span class="title-word title-word-4">A</span>
-        <span class="title-word title-word-5">CASA</span>
-      </h2>
-    </div>
-    <div class="container my-4">
+            
+      </div>
+    
       <div 
         class="d-flex flex-row justify-content-center align-items-center flex-wrap"
       >
         <ApartmentsAll :apartments="apartments" />
       </div>
     </div>
-  </section>
+    </section>
+
   
 </template>
 

@@ -161,16 +161,23 @@ export default {
           <input type="range" class="form-range" id="customRange1" min="1" max="20" v-model="searchParams.radius">
         </div>
 
-        <div class="col-12 mt-3">
-          <label>Services:</label>
-          <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
+        <div class="dropdown mt-3">
+         <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Servizi
+         </button>
+        <ul class="dropdown-menu p-3">
+         <li>
+           <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
             <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id" v-model="searchParams.services">
             <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
           </div>
+         </li>
+         </ul>
         </div>
       </div>
     </div>
   </form>
+  
 </template>
 
 <style lang="scss" scoped></style>
