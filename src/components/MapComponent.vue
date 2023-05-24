@@ -35,12 +35,12 @@ export default {
 
 <template>
   <div id="map"></div>
-  <ul>
+  <ul class="liststyle">
     <li>
-      {{ lon }}
+      
     </li>
     <li>
-      {{ lat }}
+      
     </li>
   </ul>
 </template>
@@ -49,5 +49,9 @@ export default {
 #map {
   width: 100%;
   height: 400px;
+}
+
+.liststyle{
+  list-style: none;
 }
 </style>

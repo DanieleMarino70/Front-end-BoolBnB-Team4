@@ -123,7 +123,7 @@ AOS.init();
         </div>
         <div class="text-center mt-3 mb-3">
         <p class="text-dark">Servizi:</p>
-            <li v-for="service in apartment.service">
+            <li class="serviceline" v-for="service in apartment.service">
               <span class="servicetype">
                 <i class="fa-solid fa-check text-success"></i> {{ service.name }}
               </span>
@@ -162,6 +162,11 @@ li {
 .servicetype {
   color: black;
   transition: 0.8s;
+  font-size: 14px;
+}
+
+.serviceline{
+  line-height: 20px;
 }
 
 .servicetype:hover {
