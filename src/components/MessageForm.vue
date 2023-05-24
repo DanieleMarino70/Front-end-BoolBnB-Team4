@@ -16,6 +16,7 @@ export default {
         email: "",
         message: "",
       },
+      success: false,
     };
   },
 
@@ -39,6 +40,7 @@ export default {
         });
     },
     sendMessage() {
+      this.success = false;
       const message = {
         apartment_id: this.apartment_id,
         name: this.userMessage.name,
@@ -57,6 +59,7 @@ export default {
           this.userMessage.surname = "";
           this.userMessage.email = "";
           this.userMessage.message = "";
+          this.success = true;
         })
         .catch((error) => {
           console.error(error);
@@ -71,7 +74,10 @@ export default {
 </script>
 
 <template>
-  <form @submit="sendMessage">
+  <div v-if="success" class="alert alert-success">
+    Messaggio inviato con successo
+  </div>
+  <form @submit.prevent="sendMessage">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -166,7 +172,6 @@ button:hover {
 
 .neon-text {
   color: black;
-  
 
   text-align: center;
   text-transform: uppercase;
