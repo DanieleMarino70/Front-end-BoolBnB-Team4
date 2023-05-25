@@ -36,25 +36,25 @@ color: #e4baa0;-->
     <div data-aos="fade-up"
       data-aos-duration="1000" class="container intro col-12">
       <div class="col-8 offset-2 text-center p-5">
-        <h1>SEI FINALMENTE A CASA CON BOOLBNB!</h1>
+        <h1>YOU ARE FINALLY HOME WITH BOOLBNB!</h1>
         <p>
-          Boolbnb è una piattaforma ideata per ogni tipo di viaggio e ti
-          permette in modo veloce e sicuro di prenotare un alloggio e affittare
-          una casa o offrire un’esperienza.
+          Boolbnb is a platform designed for all types of travel and you
+          allows you to quickly and safely book accommodation and rent
+          a home or offer an experience.
         </p>
         <p>
-          Si fonda sulla fiducia, sull’affidabilità e su una stretta relazione
-          tra i diversi viaggiatori, che recensiscono l’alloggio all’interno
-          della community. È molto semplice da utilizzare: vai sul sito di
-          Airbnb, sia che sei un host o un viaggiatore se vuoi mettere un
-          annuncio o rispondere dovrai effettuare l’accesso. Al termine di tutti
-          i dati, ti ritroverai nella pagina iniziale di Airbnb, che ti propone
-          non solo differenti tipologie di case ma anche esperienze e
-          ristoranti. Le case Airbnb vengono selezionate in: Airbnb plus,
-          selezionate per qualità e comfort, e quelle adatte alla famiglia e al
-          lavoro. Se desideri prenotare una casa è molto semplice e veloce: ti
-          basta digitare il luogo dove desideri andare e scegliere tra le
-          alternative previste.
+          It is based on trust, reliability and a close relationship
+          among the different travellers, who review the accommodation inside
+          of the community. It is very simple to use: go to the site of
+          Airbnb, whether you are a host or a traveler if you want to put a
+          ad or reply you will need to log in. At the end of all
+          the data, you will find yourself on the Airbnb home page, which offers you
+          not only different types of houses but also experiences and
+          restaurants. Airbnb homes are selected in: Airbnb plus,
+          selected for quality and comfort, and those suitable for family and al
+          Work. If you want to book a house it is very simple and fast: you
+          just type in the place you want to go and choose between
+          foreseen alternatives.
         </p>
       </div>
     </div>
