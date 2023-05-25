@@ -1,6 +1,47 @@
 <script>
+import axios from "axios";
+import ApartmentsAll from "../components/ApartmentsAll.vue";
+import ApartmentsFiltered from "../components/ApartmentsFiltered.vue";
+import SearchBar from "../components/SearchBar.vue";
 import { onMounted } from "vue";
 import AOS from "aos";
+import { store } from "../store";
+import AppLoader from "../components/AppLoader.vue";
+
+export default {
+  data() {
+    return {
+      apartments: [],
+      visibilityApartments:[],
+      store,
+      isLoading: false, //caricamento
+    };
+  },
+  methods: {
+    fetchApartments() {
+      this.isLoading = true;
+      axios.get("http://127.0.0.1:8000/api/apartments").then((response) => {
+        this.apartments = response.data.apartments;
+        this.visibilityApartments =this.apartments.filter((apartment)=>{
+          if (apartment.visibility === 1){
+            return true;
+          }
+        });
+        
+      })
+        .finally(() => {
+          // comunque sia...
+          this.isLoading = false;
+        });
+    },
+  },
+  created() {
+    this.fetchApartments();
+  },
+  components: { ApartmentsAll, SearchBar, ApartmentsFiltered, AppLoader },
+};
+
+
 
 AOS.init();
 </script>
@@ -58,6 +99,13 @@ color: #e4baa0;-->
         </p>
       </div>
     </div>
+    <section>
+     <div class="container">
+      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+        <ApartmentsAll :apartments="visibilityApartments" />
+      </div>
+     </div>
+    </section>
   </div>
 </template>
 
