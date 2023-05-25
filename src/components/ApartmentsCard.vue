@@ -34,19 +34,23 @@ export default {
     />
     <div class="card-body d-flex flex-column">
       
-      <div><h5>{{ title }}</h5></div>
-      <div ><p class="text-muted addresstext">{{ address }}</p></div>
+      <div class="appcardtitle">
+        <h5>{{ title }}</h5>
+      </div>
+      <div>
+        <p class="text-muted addresstext">{{ address }}</p>
+      </div>
       
-      <div class="iconapplist d-flex flex-row ">
+      <div class="iconapplist d-flex flex-row gap-5 align-items-end">
         
         <div class="beds">
-         <h5><i class="fas fa-bed"></i> <span>{{ beds }}</span> Bed</h5>
+         <h5><i class="fas fa-bed"></i><span>{{ beds }}</span> Bed</h5>
         </div>
-       <div class="baths">
-        <h5><i class="fas fa-bath"></i> <span>{{ bathrooms }}</span> Bathrooms</h5>
-       </div>
-       <div class="distance">
-          <h5><i class="fas fa-car"></i> <span>{{ distance }}</span> Distance</h5>
+        <div class="baths">
+         <h5><i class="fas fa-bath"></i><span>{{ bathrooms }}</span> Bathrooms</h5>
+        </div>
+        <div class="distance">
+         <h5><i class="fas fa-car"></i><span>{{ distance }}</span> Distance</h5>
         </div>
       
       </div>
@@ -133,16 +137,12 @@ export default {
   
 }
 
-.iconapplist{
-  position: absolute;
-  bottom: 80px;
-  gap: 127px;
-  
-}
+
 
 .iconapplist h5{
   font-size: 12px;
 }
+
 
 
 </style>
