@@ -63,9 +63,9 @@ AOS.init();
 
       </div>
 
-      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+      <!-- <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
         <ApartmentsAll :apartments="apartments" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
