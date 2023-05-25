@@ -13,7 +13,7 @@ export default {
     <div class="container my-4">
         <div class="row row-cols-3 d-flex align-items-center justify-content-center gap-5">
             <ApartmentsCard class="col" v-for="apartment in apartments" :id="apartment.id" :title="apartment.title"
-                :address="apartment.address" :image="apartment.image" :squaremeters="apartment.square_meters" />
+                :address="apartment.address" :image="apartment.image" :squaremeters="apartment.square_meters" :distance="apartment.distance"  />
         </div>
     </div>
 </template>

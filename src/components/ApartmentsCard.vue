@@ -12,6 +12,7 @@ export default {
     image: Image,
     beds:Number,
     bathrooms:Number,
+    distance: String,
   },
 };
 
@@ -44,6 +45,9 @@ export default {
        <div class="baths">
         <h5><i class="fas fa-bath"></i> <span>{{ bathrooms }}</span> Bathrooms</h5>
        </div>
+       <div class="distance">
+          <h5><i class="fas fa-car"></i> <span>{{ distance }}</span> Distance</h5>
+        </div>
       
       </div>
       

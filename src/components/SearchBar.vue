@@ -139,7 +139,7 @@ export default {
             );
 
             
-            apartment.distance = distance;
+            apartment.distance = distance.toFixed(2);
 
             if (distance > radiusInKms) {
               return false;
@@ -169,7 +169,7 @@ export default {
           store.filteredApartments.sort((a, b) => {
             return a.visibility - b.visibility;
           });
-          
+
            // Sort the filtered apartments by distance
           store.filteredApartments.sort((a, b) => {
             return a.distance - b.distance;
