@@ -60,7 +60,7 @@ export default {
         }"
         :apartment="apartment"
       >
-        DIMMI DI PIU
+        SHOW ME MORE
        </router-link>
       </div>
       
