@@ -1,7 +1,7 @@
 <script>
 import axios, { Axios } from 'axios';
 import { store } from '../store';
-
+import AppLoader from "../components/AppLoader.vue";
 
 export default {
   data() {
@@ -19,6 +19,7 @@ export default {
       apartments: [],
       store,
       el: '.wrapper',
+      isLoading: false, //caricamento
 
     }
   },
@@ -33,6 +34,7 @@ export default {
     placeholder: String,
   },
 
+  components: { AppLoader },
 
   emits: ["on-search"],
 
@@ -72,12 +74,18 @@ export default {
     },
 
     searchApartments() {
+
+      this.isLoading = true; //caricamento
+
       const searchedLocation = this.searchedLocation;
       const newSearchParams = { ...this.searchParams };
       //console.log(newSearchParams);
 
       const tomtomRequest = axios.get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`);
-      const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`);
+      const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`).finally(() => {
+        // comunque sia...
+        this.isLoading = false;
+      });
 
       Promise.all([tomtomRequest, apartmentsRequest])
         .then(([tomtomResponse, apartmentsResponse]) => {
@@ -138,6 +146,7 @@ export default {
 
 
 <template>
+  <AppLoader v-if="isLoading" />
   <form @submit.prevent>
     <div class="container">
       <div class="row">
@@ -162,22 +171,23 @@ export default {
         </div>
 
         <div class="dropdown mt-3">
-         <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Servizi
-         </button>
-        <ul class="dropdown-menu p-3">
-         <li>
-           <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
-            <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id" v-model="searchParams.services">
-            <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
-          </div>
-         </li>
-         </ul>
+          <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Servizi
+          </button>
+          <ul class="dropdown-menu p-3">
+            <li>
+              <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
+                <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id"
+                  v-model="searchParams.services">
+                <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </form>
-  
 </template>
 
 <style lang="scss" scoped></style>
