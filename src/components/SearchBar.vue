@@ -166,13 +166,15 @@ export default {
           });
 
 
+           // Sort the filtered apartments by visibility and then by distance
           store.filteredApartments.sort((a, b) => {
-            return a.visibility - b.visibility;
-          });
-
-           // Sort the filtered apartments by distance
-          store.filteredApartments.sort((a, b) => {
-            return a.distance - b.distance;
+            if (a.visibility !== b.visibility) {
+              // Sort by visibility in descending order
+              return b.visibility - a.visibility;
+            } else {
+              // Sort by distance in ascending order
+              return a.distance - b.distance;
+            }
           });
 
           
