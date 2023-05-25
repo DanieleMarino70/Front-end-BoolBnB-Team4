@@ -31,7 +31,7 @@ export default {
       alt="Card image cap"
       style="width: 100%; height: 20vh"
     />
-    <div class="card-body">
+    <div class="card-body d-flex flex-column">
       
       <div><h5>{{ title }}</h5></div>
       <div ><p class="text-muted addresstext">{{ address }}</p></div>
@@ -60,7 +60,7 @@ export default {
         }"
         :apartment="apartment"
       >
-        DIMMI DI PIU
+        SHOW ME MORE
        </router-link>
       </div>
       

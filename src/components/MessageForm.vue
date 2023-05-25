@@ -88,7 +88,7 @@ export default {
     <div>
       <div class="my-4">
         <h5 class="text-center fw-bold color-primary neon-text">
-          Vuoi saperne di più su questo appartamento?
+          DO YOU WANT TO KNOW MORE ABOUT THIS APARTMENT?
         </h5>
       </div>
 

@@ -15,7 +15,7 @@ AOS.init();
 
      <div class="col-12 teamwallpaper d-flex align-items-center">
           <div class="col-6 d-flex flex-column justify-content-center p-4">
-          <h1 class="text-white fadein visible">IL TEAM DI BOOLBNB</h1>
+          <h1 class="text-white fadein visible">THE BOOLBNB TEAM</h1>
           </div>
      </div>
 

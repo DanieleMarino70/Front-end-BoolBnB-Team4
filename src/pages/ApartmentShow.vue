@@ -75,7 +75,7 @@ AOS.init();
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="textexplicit">Numero di stanze:</p>
+                <p class="textexplicit">Rooms:</p>
                 <p class="text-dark">{{ apartment.rooms }}</p>
               </div>
             </li>
@@ -93,13 +93,13 @@ AOS.init();
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="textexplicit">Metri quadri:</p>
+                <p class="textexplicit">Square meters:</p>
                 <p class="text-dark">{{ apartment.square_meters }}</p>
               </div>
             </li>
             <li>
               <div class="d-flex flex-row gap-3">
-                <p class="textexplicit">Visibilità:</p>
+                <p class="textexplicit">Visibility:</p>
                 <p class="text-dark">{{ apartment.visibility }}</p>
               </div>
             </li>
@@ -118,11 +118,11 @@ AOS.init();
           
         </ul>
         <div class="d-flex flex-column gap-3">
-                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">Descrizione:</p>
+                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">Description:</p>
                 <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">{{ apartment.description }}</p>
         </div>
         <div class="text-center mt-3 mb-3">
-        <p class="text-dark">Servizi:</p>
+        <p class="text-dark">Service:</p>
             <li class="serviceline" v-for="service in apartment.service">
               <span class="servicetype">
                 <i class="fa-solid fa-check text-success"></i> {{ service.name }}

@@ -6,71 +6,68 @@ import SearchBar from "../components/SearchBar.vue";
 import { onMounted } from "vue";
 import AOS from "aos";
 import { store } from "../store";
+import AppLoader from "../components/AppLoader.vue";
 
 export default {
   data() {
     return {
       apartments: [],
       store,
-      
+      isLoading: false, //caricamento
     };
   },
   methods: {
     fetchApartments() {
+      this.isLoading = true;
       axios.get("http://127.0.0.1:8000/api/apartments").then((response) => {
         this.apartments = response.data.apartments;
-      });
+      })
+        .finally(() => {
+          // comunque sia...
+          this.isLoading = false;
+        });
     },
   },
   created() {
     this.fetchApartments();
   },
-  components: { ApartmentsAll, SearchBar, ApartmentsFiltered },
+  components: { ApartmentsAll, SearchBar, ApartmentsFiltered, AppLoader },
 };
 
 
 
-    AOS.init();
+AOS.init();
 
 </script>
 
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="main.js" />
-  
 
+  <AppLoader v-if="isLoading" />
   <section>
     <div class="container">
       <SearchBar placeholder="Cerca"></SearchBar>
-      
+
     </div>
   </section>
 
-  
-    <section v-if="store.filteredApartments">
-      <div class="container">
-          <div 
-            class="d-flex flex-row justify-content-center align-items-center flex-wrap"
-          >
-            <ApartmentsFiltered :apartments="store.filteredApartments" />
-            
+
+  <section v-if="store.filteredApartments">
+    <div class="container">
+      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+        <ApartmentsFiltered :apartments="store.filteredApartments" />
+
       </div>
-    
-      <div 
-        class="d-flex flex-row justify-content-center align-items-center flex-wrap"
-      >
+
+      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
         <ApartmentsAll :apartments="apartments" />
       </div>
     </div>
-    </section>
-
-  
+  </section>
 </template>
 
 
@@ -119,21 +116,27 @@ template {
   0% {
     color: var(--color-1);
   }
+
   32% {
     color: var(--color-1);
   }
+
   33% {
     color: var(--color-2);
   }
+
   65% {
     color: var(--color-2);
   }
+
   66% {
     color: var(--color-3);
   }
+
   99% {
     color: var(--color-3);
   }
+
   100% {
     color: var(--color-1);
   }
