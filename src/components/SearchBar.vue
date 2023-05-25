@@ -138,7 +138,8 @@ export default {
               apartmentLongitude
             );
 
-            console.log(distance);
+            
+            apartment.distance = distance;
 
             if (distance > radiusInKms) {
               return false;
@@ -161,8 +162,20 @@ export default {
             }
 
             // You can add additional filtering conditions if needed
-            return true;
+             return true;
           });
+
+
+          store.filteredApartments.sort((a, b) => {
+            return a.visibility - b.visibility;
+          });
+          
+           // Sort the filtered apartments by distance
+          store.filteredApartments.sort((a, b) => {
+            return a.distance - b.distance;
+          });
+
+          
 
           console.log(store.filteredApartments);
         })
