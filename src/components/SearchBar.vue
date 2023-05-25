@@ -3,6 +3,7 @@ import axios, { Axios } from 'axios';
 import { store } from '../store';
 
 
+
 export default {
   data() {
     return {
@@ -19,6 +20,7 @@ export default {
       apartments: [],
       store,
       el: '.wrapper',
+      suggestions: [],
 
     }
   },
@@ -36,9 +38,15 @@ export default {
 
   emits: ["on-search"],
 
+   
+
+
   methods: {
     clear() {
       this.searchedLocation = "";
+      this.suggestions=[];
+      this.searchParams.minBeds=null;
+      this.searchParams.minRooms=null;
       this.searchParams.longitude = null;
       this.searchParams.latitude = null;
     },
@@ -69,6 +77,29 @@ export default {
 
     degreesToRadians(degrees) {
       return degrees * (Math.PI / 180);
+    },
+
+    handleInput() {
+      if (this.searchedLocation.length > 2) {
+        axios.get(`https://api.tomtom.com/search/2/search/${this.searchedLocation}.json?key=${this.apiKey}`)
+          .then(response => {
+            console.log(response);
+            this.suggestions = response.data.results;
+            
+          })
+          .catch(error => {
+            console.error('Error occurred during search:', error);
+          });
+      } else {
+        this.suggestions = [];
+      }
+    },
+
+    selectSuggestion(suggestion) {
+      this.searchedLocation = suggestion.address.freeformAddress;
+      this.searchParams.longitude = suggestion.position.lon;
+      this.searchParams.latitude = suggestion.position.lat;
+      this.suggestions = [];
     },
 
     searchApartments() {
@@ -141,12 +172,18 @@ export default {
   <form @submit.prevent>
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 ">
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation">
-            <button class="btn btn-success" type="button" @click="searchApartments">Search</button>
-            <button class="btn btn-danger" type="button" @click="clear">Reset</button>
+            <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput">
+              <button class="btn btn-success" type="button" @click="searchApartments">Search</button>
+              <button class="btn btn-danger" type="button" @click="clear">Reset</button>
+              
           </div>
+          <ul v-if="suggestions.length > 0">
+                <li v-for="suggestion in suggestions" :key="suggestion.id" @click="selectSuggestion(suggestion)">
+                  {{ suggestion.address.freeformAddress }}
+                </li>
+              </ul>
         </div>
         <div class="col-3 mt-3">
           <label for="">Numero Letti</label>
@@ -158,7 +195,7 @@ export default {
         </div>
         <div class="col-3 mt-3 wrapper">
           <label for="">Raggio <span v-text="total"></span> Km</label>
-          <input type="range" class="form-range" id="customRange1" min="1" max="20" v-model="searchParams.radius">
+          <input type="range" class="form-range" id="customRange1" min="1" max="50" v-model="searchParams.radius">
         </div>
 
         <div class="dropdown mt-3">
@@ -180,4 +217,28 @@ export default {
   
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+ul {
+    margin: 5px;
+    padding: 0;       
+    background: #fff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;  
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+    transition: .4s height;
+    overflow: auto;
+    height: 8rem;
+    li {
+    font-size: 13px;
+    padding: 5px 5px;
+    list-style: none;
+    border-top: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+}
+
+
+
+</style>
