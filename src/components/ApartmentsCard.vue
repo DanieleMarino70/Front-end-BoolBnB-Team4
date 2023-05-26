@@ -62,6 +62,7 @@ AOS.init();
         <div v-if="distance" class="distance">
           <h5>
             <i class="fas fa-car"></i><span>{{ distance }}</span> Km
+            <i class="fas fa-car"></i><span>{{ distance }} </span> Distance
           </h5>
         </div>
       </div>
