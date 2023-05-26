@@ -6,10 +6,7 @@
       class="navbar navbar-expand-lg bg-light d-flex justify-content-between"
     >
       <div class="container-fluid">
-        <img
-          src="kisspng-airbnb-logo-airbnb-logo-5b167f0e623554.9749034315282009744023.png"
-          alt=""
-        />
+        <img src="BBnB_logo.png" alt="" />
         <button
           class="navbar-toggler"
           type="button"
@@ -29,12 +26,9 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:8000/register"
-                >Register</a
+              <a class="nav-link" href="http://127.0.0.1:8000/admin/apartments"
+                >Your Apartments</a
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
             </li>
             <li class="nav-item">
               <router-link :to="{ name: 'ApartmentsList' }" class="nav-link">
@@ -52,6 +46,17 @@
               >
             </li>
           </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:8000/register"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://127.0.0.1:8000/login">Login</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -60,19 +65,19 @@
 
 <style lang="scss" scoped>
 nav img {
-  width: 80px;
+  width: 60px;
 }
 
 nav ul li {
   list-style: none;
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 nav ul li {
   text-decoration: none;
   color: white;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 nav ul li a:hover {

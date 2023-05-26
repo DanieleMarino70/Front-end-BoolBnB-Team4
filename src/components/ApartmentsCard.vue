@@ -59,9 +59,9 @@ AOS.init();
             <i class="fas fa-bath"></i><span>{{ bathrooms }}</span> Bathrooms
           </h5>
         </div>
-        <div class="distance">
+        <div v-if="distance" class="distance">
           <h5>
-            <i class="fas fa-car"></i><span>{{ distance }}</span> Distance
+            <i class="fas fa-car"></i><span>{{ distance }}</span> Km
           </h5>
         </div>
       </div>
