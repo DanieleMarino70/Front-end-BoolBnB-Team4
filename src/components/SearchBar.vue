@@ -274,6 +274,10 @@ ul {
 
 }
 
+.dropdown button{
+  border: 1px solid #ced4da;
+}
+
 
 
 </style>

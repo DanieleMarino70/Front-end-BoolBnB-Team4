@@ -147,7 +147,7 @@ li {
 }
 
 .contcard {
-  background-color: #efefef;
+  background-color: #faeee7;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   font-family: "Fjalla One", sans-serif;

@@ -164,6 +164,7 @@ button {
   border-radius: 50px;
   margin-top: 20px;
   transition: 0.5s;
+  background-color: #faeee7;
 }
 button:hover {
   background-color: white;

@@ -51,17 +51,17 @@ AOS.init();
       <div class="iconapplist d-flex flex-row gap-5 align-items-end">
         <div class="beds">
           <h5>
-            <i class="fas fa-bed"></i><span>{{ beds }}</span> Bed
+            <i class="fas fa-bed"></i><span>{{ beds }} </span>  Bed
           </h5>
         </div>
         <div class="baths">
           <h5>
-            <i class="fas fa-bath"></i><span>{{ bathrooms }}</span> Bathrooms
+            <i class="fas fa-bath"></i><span>{{ bathrooms }} </span>  Bathrooms
           </h5>
         </div>
         <div class="distance">
           <h5>
-            <i class="fas fa-car"></i><span>{{ distance }}</span> Distance
+            <i class="fas fa-car"></i><span>{{ distance }} </span>  Distance
           </h5>
         </div>
       </div>
