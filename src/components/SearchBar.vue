@@ -46,6 +46,7 @@ export default {
     clear() {
       this.searchedLocation = "";
       this.suggestions=[];
+      this.searchParams.radius = "20";
       this.searchParams.minBeds=null;
       this.searchParams.minRooms=null;
       this.searchParams.longitude = null;
@@ -82,7 +83,7 @@ export default {
 
     handleInput() {
       if (this.searchedLocation.length > 2) {
-        axios.get(`https://api.tomtom.com/search/2/search/${this.searchedLocation}.json?key=${this.apiKey}`)
+        axios.get(`https://api.tomtom.com/search/2/search/${this.searchedLocation}.json?key=${this.apiKey}&countrySet=IT`)
           .then(response => {
             console.log(response);
             this.suggestions = response.data.results;
@@ -111,8 +112,11 @@ export default {
       const newSearchParams = { ...this.searchParams };
       //console.log(newSearchParams);
 
-      const tomtomRequest = axios.get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`);
-      const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`).finally(() => {
+      const tomtomRequest = axios.get(`https://api.tomtom.com/search/2/search/${searchedLocation}.json?key=${this.apiKey}`).catch((err) => {
+        store.filteredApartments = [];
+      });
+      const apartmentsRequest = axios.get(`http://127.0.0.1:8000/api/apartments/search/${searchedLocation}`)
+      .finally(() => {
         // comunque sia...
         this.isLoading = false;
       });
@@ -124,6 +128,7 @@ export default {
           newSearchParams.longitude = coordinates.lon;
 
           this.apartments = apartmentsResponse.data.apartments;
+          
 
           // Filter apartments based on minRooms, minBeds, and latitude/longitude
           store.filteredApartments = this.apartments.filter((apartment) => {
@@ -198,13 +203,13 @@ export default {
         <div class="col-12 ">
           <div class="input-group input-group-sm">
             <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput">
-              <button class="btn btn-success" type="button" @click="searchApartments">Search</button>
+              <button class="btn btn-success" type="button" @click="searchApartments" @keyup.enter="searchApartments">Search</button>
               <button class="btn btn-danger" type="button" @click="clear">Reset</button>
               
           </div>
           <ul v-if="suggestions.length > 0">
                 <li v-for="suggestion in suggestions" :key="suggestion.id" @click="selectSuggestion(suggestion)">
-                  {{ suggestion.address.freeformAddress }}
+                  <button>{{ suggestion.address.freeformAddress }}</button>
                 </li>
               </ul>
         </div>
@@ -254,6 +259,12 @@ ul {
     overflow: auto;
     height: 8rem;
     li {
+      button{
+        all: unset;
+        &:focus {
+          outline: 1px solid #eb5e5e;
+        }
+      }
     font-size: 13px;
     padding: 5px 5px;
     list-style: none;
