@@ -39,18 +39,11 @@ AOS.init();
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <div class="container">
     <div class="row  justify-content-center ">
@@ -104,30 +97,32 @@ AOS.init();
               </div>
             </li>
             <li>
-              
+
             </li>
           </div>
           <div>
-          <li class="imagelist">
+            <li class="imagelist">
               <img :src="getImageUri(apartment.image)" alt="" style="width: 28vw;" />
-          </li>
+            </li>
           </div>
 
           <!-- <li>{{ apartment.description }}</li>
             <li>{{ apartment.rooms }}</li> -->
-          
+
         </ul>
         <div class="d-flex flex-column gap-3">
-                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">Description:</p>
-                <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">{{ apartment.description }}</p>
+          <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">
+            Description:</p>
+          <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">{{
+            apartment.description }}</p>
         </div>
         <div class="text-center mt-3 mb-3">
-        <p class="text-dark">Service:</p>
-            <li class="serviceline" v-for="service in apartment.service">
-              <span class="servicetype">
-                <i class="fa-solid fa-check text-success"></i> {{ service.name }}
-              </span>
-            </li>
+          <p class="text-dark">Service:</p>
+          <li class="serviceline" v-for="service in apartment.service">
+            <span class="servicetype">
+              <i class="fa-solid fa-check text-success"></i> {{ service.name }}
+            </span>
+          </li>
         </div>
         <MapComponent :lat="apartment.latitude" :lon="apartment.longitude" />
         <MessageForm :apartment_id="apartment.id" />
@@ -165,7 +160,7 @@ li {
   font-size: 14px;
 }
 
-.serviceline{
+.serviceline {
   line-height: 20px;
 }
 
@@ -173,15 +168,15 @@ li {
   color: rgb(112, 255, 83);
 }
 
-.texttt{
-  color:rgb(65, 65, 65);
+.texttt {
+  color: rgb(65, 65, 65);
 }
 
-.textwt{
-  color:rgb(95, 95, 95);
+.textwt {
+  color: rgb(95, 95, 95);
 }
 
-.textexplicit{
-  color:rgb(207, 207, 207);
+.textexplicit {
+  color: rgb(207, 207, 207);
 }
 </style>
