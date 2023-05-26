@@ -197,56 +197,63 @@ export default {
 
 <template>
   <AppLoader v-if="isLoading" />
-  <form @submit.prevent>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 ">
-          <div class="input-group input-group-sm">
-            <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput" @keyup.enter="searchApartments">
-              <button class="btn btn-success" type="button" @click="searchApartments" >Search</button>
-              <button class="btn btn-danger" type="button" @click="clear">Reset</button>
-              
-          </div>
-          <ul v-if="suggestions.length > 0">
-                <li v-for="suggestion in suggestions" :key="suggestion.id" @click="selectSuggestion(suggestion)">
-                  <button>{{ suggestion.address.freeformAddress }}</button>
+  <div class="search-bar card">
+    <form @submit.prevent>
+      <div class="container">
+          <div class="row p-3">
+            <div class="col-12 ">
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput" @keyup.enter="searchApartments">
+                  <button class="btn btn-light" type="button" @click="searchApartments" >Search</button>
+                  <button class="btn btn-danger" type="button" @click="clear">Reset</button>
+                  
+              </div>
+              <ul v-if="suggestions.length > 0" class="list-group">
+                    <li class="list-group-item" v-for="suggestion in suggestions" :key="suggestion.id" @click="selectSuggestion(suggestion)">
+                      <button>{{ suggestion.address.freeformAddress }}</button>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-6 mt-3">
+              <label for="">Numero Letti</label>
+              <input type="number" min="0" class="form-control" v-model="searchParams.minBeds">
+            </div>
+            <div class="col-6 mt-3">
+              <label for="">Numero Stanze</label>
+              <input type="number" min="0" class="form-control" v-model="searchParams.minRooms">
+            </div>
+            <div class="col-3 mt-3 wrapper">
+              <label for="">Raggio <span v-text="total"></span> Km</label>
+              <input type="range" class="form-range" id="customRange1" min="1" max="50" v-model="searchParams.radius">
+            </div>
+    
+            <div class="dropdown mt-3">
+              <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Servizi
+              </button>
+              <ul class="dropdown-menu p-3">
+                <li>
+                  <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
+                    <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id"
+                      v-model="searchParams.services">
+                    <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
+                  </div>
                 </li>
               </ul>
-        </div>
-        <div class="col-3 mt-3">
-          <label for="">Numero Letti</label>
-          <input type="number" class="form-control" v-model="searchParams.minBeds">
-        </div>
-        <div class="col-3 mt-3">
-          <label for="">Numero Stanze</label>
-          <input type="number" class="form-control" v-model="searchParams.minRooms">
-        </div>
-        <div class="col-3 mt-3 wrapper">
-          <label for="">Raggio <span v-text="total"></span> Km</label>
-          <input type="range" class="form-range" id="customRange1" min="1" max="50" v-model="searchParams.radius">
-        </div>
-
-        <div class="dropdown mt-3">
-          <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Servizi
-          </button>
-          <ul class="dropdown-menu p-3">
-            <li>
-              <div class="form-check" v-for="service in store.appartmentsServices" :key="service.id">
-                <input class="form-check-input" type="checkbox" :id="'service-' + service.id" :value="service.id"
-                  v-model="searchParams.services">
-                <label class="form-check-label" :for="'service-' + service.id">{{ service.name }}</label>
-              </div>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+
+.search-bar{
+  margin: 5rem 0;
+  background-color: #e4baa1;
+}
 
 ul {
     margin: 5px;
@@ -257,7 +264,7 @@ ul {
     box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
     transition: .4s height;
     overflow: auto;
-    height: 8rem;
+    max-height: 8rem;
     li {
       button{
         all: unset;
@@ -277,6 +284,7 @@ ul {
 .dropdown button{
   border: 1px solid #ced4da;
 }
+
 
 
 
