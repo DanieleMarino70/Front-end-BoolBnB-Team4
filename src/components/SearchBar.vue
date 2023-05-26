@@ -202,8 +202,8 @@ export default {
       <div class="row">
         <div class="col-12 ">
           <div class="input-group input-group-sm">
-            <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput">
-              <button class="btn btn-success" type="button" @click="searchApartments" @keyup.enter="searchApartments">Search</button>
+            <input type="text" class="form-control" :placeholder="placeholder" v-model="searchedLocation" @input="handleInput" @keyup.enter="searchApartments">
+              <button class="btn btn-success" type="button" @click="searchApartments" >Search</button>
               <button class="btn btn-danger" type="button" @click="clear">Reset</button>
               
           </div>
