@@ -248,11 +248,11 @@ export default {
                   </ul>
             </div>
             <div class="col-12 col-md-6 mt-3">
-              <label for="">Number of Beds</label>
+              <label for="">N° of Beds</label>
               <input type="number" min="0" class="form-control" v-model="searchParams.minBeds">
             </div>
             <div class="col-12 col-md-6 mt-3">
-              <label for="">Number of Rooms</label>
+              <label for="">N° of Rooms</label>
               <input type="number" min="0" class="form-control" v-model="searchParams.minRooms">
             </div>
             <div class="col-12 col-md-6 mt-3 wrapper">
