@@ -123,13 +123,46 @@ export default {
 
       Promise.all([tomtomRequest, apartmentsRequest])
         .then(([tomtomResponse, apartmentsResponse]) => {
-          const coordinates = tomtomResponse.data.results[0].position;
-          newSearchParams.latitude = coordinates.lat;
-          newSearchParams.longitude = coordinates.lon;
-
+          store.filteredApartments = [];
+          const tomtomResults = tomtomResponse.data.results;
           this.apartments = apartmentsResponse.data.apartments;
-          
 
+          // Initialize variables for closest coordinate and distance
+          let closestCoordinate = null;
+          let closestDistance = Infinity;
+
+          // Iterate over apartments
+          this.apartments.forEach((apartment) => {
+            const apartmentLatitude = parseFloat(apartment.latitude);
+            const apartmentLongitude = parseFloat(apartment.longitude);
+
+            // Iterate over tomtom results
+            tomtomResults.forEach((result) => {
+              const coordinates = result.position;
+              const distance = this.calculateDistance(
+                coordinates.lat,
+                coordinates.lon,
+                apartmentLatitude,
+                apartmentLongitude
+              );
+
+              if (distance < closestDistance) {
+                closestCoordinate = coordinates;
+                closestDistance = distance;
+              }
+            });
+
+            console.log(closestCoordinate);
+            if (closestCoordinate) {
+              // Perform the necessary actions using the closest coordinate for each apartment
+              // ...
+              newSearchParams.latitude = closestCoordinate.lat;
+              newSearchParams.longitude = closestCoordinate.lon;
+            }
+          });
+          
+          console.log(newSearchParams.latitude);
+          console.log(newSearchParams.longitude);
           // Filter apartments based on minRooms, minBeds, and latitude/longitude
           store.filteredApartments = this.apartments.filter((apartment) => {
             const apartmentLatitude = parseFloat(apartment.latitude);
@@ -214,23 +247,23 @@ export default {
                     </li>
                   </ul>
             </div>
-            <div class="col-6 mt-3">
-              <label for="">Numero Letti</label>
+            <div class="col-12 col-md-6 mt-3">
+              <label for="">Number of Beds</label>
               <input type="number" min="0" class="form-control" v-model="searchParams.minBeds">
             </div>
-            <div class="col-6 mt-3">
-              <label for="">Numero Stanze</label>
+            <div class="col-12 col-md-6 mt-3">
+              <label for="">Number of Rooms</label>
               <input type="number" min="0" class="form-control" v-model="searchParams.minRooms">
             </div>
-            <div class="col-3 mt-3 wrapper">
-              <label for="">Raggio <span v-text="total"></span> Km</label>
+            <div class="col-12 col-md-6 mt-3 wrapper">
+              <label for="">Range <span v-text="total"></span> Km</label>
               <input type="range" class="form-range" id="customRange1" min="1" max="50" v-model="searchParams.radius">
             </div>
     
             <div class="dropdown mt-3">
               <button class="btn btn-white dropdown-toggle bg-white" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Servizi
+                Services
               </button>
               <ul class="dropdown-menu p-3">
                 <li>

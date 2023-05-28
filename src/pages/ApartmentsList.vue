@@ -50,7 +50,7 @@ AOS.init();
   <AppLoader v-if="isLoading" />
   <section>
     <div class="container">
-      <SearchBar placeholder="Cerca"></SearchBar>
+      <SearchBar placeholder="Search an apartment"></SearchBar>
 
     </div>
   </section>
