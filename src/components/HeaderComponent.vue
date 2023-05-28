@@ -5,7 +5,7 @@
     <nav
       class="navbar navbar-expand-lg bg-light d-flex justify-content-between"
     >
-      <div class="container-fluid">
+      <div class="container">
         <img src="BBnB_logo.png" alt="" />
         <button
           class="navbar-toggler"
