@@ -25,21 +25,18 @@ AOS.init();
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    referrerpolicy="no-referrer" />
 
   <div
     data-aos="fade-up"
     data-aos-duration="1500"
     class="apartmentcard card p-3 bg-white"
-    style="width: 19rem; height: 60vh"
-  >
+    style="width: 19rem; height: 60vh">
     <img
       class="card-img-top"
       :src="image"
       alt="Card image cap"
-      style="width: 100%; height: 20vh"
-    />
+      style="width: 100%; height: 20vh" />
     <div class="card-body d-flex flex-column">
       <div class="appcardtitle">
         <h5>{{ title }}</h5>
@@ -51,17 +48,17 @@ AOS.init();
       <div class="iconapplist d-flex flex-row gap-5 align-items-end">
         <div class="beds">
           <h5>
-            <i class="fas fa-bed"></i><span>{{ beds }}</span> Bed
+            <i class="fas fa-bed me-2"></i><span>{{ beds }}</span>
           </h5>
         </div>
         <div class="baths">
           <h5>
-            <i class="fas fa-bath"></i><span>{{ bathrooms }}</span> Bathrooms
+            <i class="fas fa-bath me-2"></i><span>{{ bathrooms }}</span>
           </h5>
         </div>
         <div v-if="distance" class="distance">
           <h5>
-            <i class="fas fa-car"></i><span>{{ distance }} Km</span> 
+            <i class="fas fa-car me-2"></i><span>{{ distance }} Km</span>
           </h5>
         </div>
       </div>
@@ -74,8 +71,7 @@ AOS.init();
               id: id,
             },
           }"
-          :apartment="apartment"
-        >
+          :apartment="apartment">
           SHOW ME MORE
         </router-link>
       </div>
@@ -144,5 +140,9 @@ AOS.init();
 
 .iconapplist h5 {
   font-size: 12px;
+}
+
+.card-img-top {
+  object-fit: cover;
 }
 </style>

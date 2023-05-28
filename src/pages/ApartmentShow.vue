@@ -39,14 +39,19 @@ AOS.init();
 <template>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
+    rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
 
   <div class="container">
-    <div class="row  justify-content-center ">
+    <div class="row justify-content-center">
       <div class="col contcard p-3">
         <ul class="d-flex flex-row gap-2 justify-content-between">
           <div>
@@ -62,7 +67,7 @@ AOS.init();
               </div>
             </li>
             <li>
-              <div class="d-flex flex-row gap-3 ">
+              <div class="d-flex flex-row gap-3">
                 <h5 class="textwt">{{ apartment.address }}</h5>
               </div>
             </li>
@@ -96,31 +101,36 @@ AOS.init();
                 <p class="text-dark">{{ apartment.visibility }}</p>
               </div>
             </li>
-            <li>
-
-            </li>
+            <li></li>
           </div>
           <div>
             <li class="imagelist">
-              <img :src="getImageUri(apartment.image)" alt="" style="width: 28vw;" />
+              <img
+                :src="getImageUri(apartment.image)"
+                alt=""
+                style="width: 28vw" />
             </li>
           </div>
 
           <!-- <li>{{ apartment.description }}</li>
             <li>{{ apartment.rooms }}</li> -->
-
         </ul>
         <div class="d-flex flex-column gap-3">
-          <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center ">
-            Description:</p>
-          <p class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">{{
-            apartment.description }}</p>
+          <p
+            class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">
+            Description:
+          </p>
+          <p
+            class="text-dark text-center col-sm-text-center d-flex align-items-center justify-content-center">
+            {{ apartment.description }}
+          </p>
         </div>
         <div class="text-center mt-3 mb-3">
           <p class="text-dark">Service:</p>
           <li class="serviceline" v-for="service in apartment.service">
             <span class="servicetype">
-              <i class="fa-solid fa-check text-success"></i> {{ service.name }}
+              <i class="fa-solid fa-check text-success"></i>
+              {{ service.name }} "
             </span>
           </li>
         </div>
