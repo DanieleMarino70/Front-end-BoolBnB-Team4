@@ -51,6 +51,7 @@ export default {
       this.searchParams.minRooms=null;
       this.searchParams.longitude = null;
       this.searchParams.latitude = null;
+      store.filteredApartments = [];
     },
 
     calculateDistance(lat1, lon1, lat2, lon2) {
@@ -98,16 +99,18 @@ export default {
     },
 
     selectSuggestion(suggestion) {
-      this.searchedLocation = suggestion.address.freeformAddress;
-      this.searchParams.longitude = suggestion.position.lon;
-      this.searchParams.latitude = suggestion.position.lat;
+      const address = suggestion.address.freeformAddress;
+      if(address){
+        this.searchedLocation = suggestion.address.freeformAddress;
+        this.searchParams.longitude = suggestion.position.lon;
+        this.searchParams.latitude = suggestion.position.lat;
+      }
       this.suggestions = [];
     },
 
     searchApartments() {
-
       this.isLoading = true; //caricamento
-
+      store.filteredApartments = [];
       const searchedLocation = this.searchedLocation;
       const newSearchParams = { ...this.searchParams };
       //console.log(newSearchParams);
@@ -123,7 +126,7 @@ export default {
 
       Promise.all([tomtomRequest, apartmentsRequest])
         .then(([tomtomResponse, apartmentsResponse]) => {
-          store.filteredApartments = [];
+          
           const tomtomResults = tomtomResponse.data.results;
           this.apartments = apartmentsResponse.data.apartments;
 
@@ -242,8 +245,8 @@ export default {
                   
               </div>
               <ul v-if="suggestions.length > 0" class="list-group">
-                    <li class="list-group-item" v-for="suggestion in suggestions" :key="suggestion.id" @click="selectSuggestion(suggestion)">
-                      <button>{{ suggestion.address.freeformAddress }}</button>
+                    <li class="list-group-item" v-for="suggestion in suggestions" :key="suggestion.id" @click.prevent="selectSuggestion(suggestion)">
+                      <a role="button">{{ suggestion.address.freeformAddress }}</a>
                     </li>
                   </ul>
             </div>

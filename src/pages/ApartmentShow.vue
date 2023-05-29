@@ -95,12 +95,6 @@ AOS.init();
                 <p class="text-dark">{{ apartment.square_meters }}</p>
               </div>
             </li>
-            <li>
-              <div class="d-flex flex-row gap-3">
-                <p class="textexplicit">Visibility:</p>
-                <p class="text-dark">{{ apartment.visibility }}</p>
-              </div>
-            </li>
             <li></li>
           </div>
           <div>
@@ -130,7 +124,7 @@ AOS.init();
           <li class="serviceline" v-for="service in apartment.service">
             <span class="servicetype">
               <i class="fa-solid fa-check text-success"></i>
-              {{ service.name }} "
+              {{ service.name }}
             </span>
           </li>
         </div>
